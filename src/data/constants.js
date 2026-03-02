@@ -189,7 +189,7 @@ export const experiences = [
 export const education = [
   {
     id: 0,
-    img: "https://seeklogo.com/images/D/daffodil-international-university-logo-11C0D0D39A-seeklogo.com.png",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6W1vSMEDqTzLh8VYEXlBJVrKkBV_mPOSrGA&s",
     school: "Daffodil International University",
     date: "April 2018 - July 2022",
     grade: "3.62 CGPA",

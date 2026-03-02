@@ -6,7 +6,6 @@ import {
   CardContainer,
   Container,
   Desc,
-  Divider,
   Title,
   ToggleButton,
   ToggleButtonGroup,
@@ -62,8 +61,8 @@ const Projects = ({ openModal, setOpenModal }) => {
         >
           <Title>Projects</Title>
           <Desc>
-            I have worked on a wide range of projects. From web apps to android
-            apps. Here are some of my projects.
+            Explore my diverse portfolio of web and mobile applications,
+            showcasing innovative solutions and modern development practices.
           </Desc>
         </motion.div>
 
@@ -78,21 +77,19 @@ const Projects = ({ openModal, setOpenModal }) => {
               active={toggle === "all"}
               onClick={() => setToggle("all")}
             >
-              All
+              All Projects
             </ToggleButton>
-            <Divider />
             <ToggleButton
               active={toggle === "web app"}
               onClick={() => setToggle("web app")}
             >
-              WEB APPS
+              Web Apps
             </ToggleButton>
-            <Divider />
             <ToggleButton
               active={toggle === "android app"}
               onClick={() => setToggle("android app")}
             >
-              ANDROID APPS
+              Mobile Apps
             </ToggleButton>
           </ToggleButtonGroup>
         </motion.div>

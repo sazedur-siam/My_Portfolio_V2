@@ -23,45 +23,33 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-    font-size: 52px;
+    font-size: 56px;
     text-align: center;
-    font-weight: 800;
+    font-weight: 900;
     margin-top: 20px;
-    color: ${({ theme }) => theme.text_primary};
+    background: ${({ theme }) => theme.gradient};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     position: relative;
-    
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: -12px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 120px;
-        height: 4px;
-        background: ${({ theme }) => theme.gradient};
-        border-radius: 2px;
-    }
+    text-transform: uppercase;
     
     @media (max-width: 768px) {
         margin-top: 12px;
-        font-size: 36px;
-        
-        &::after {
-            width: 80px;
-            height: 3px;
-        }
+        font-size: 38px;
     }
 `;
 
 export const Desc = styled.div`
     font-size: 18px;
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
     color: ${({ theme }) => theme.text_secondary};
-    margin-top: 24px;
-    line-height: 1.6;
+    margin-top: 20px;
+    line-height: 1.7;
+    font-weight: 400;
     
     @media (max-width: 768px) {
         font-size: 16px;
@@ -71,71 +59,82 @@ export const Desc = styled.div`
 
 export const ToggleButtonGroup = styled.div`
     display: flex;
-    border: 2px solid ${({ theme }) => theme.primary}60;
+    gap: 12px;
     color: ${({ theme }) => theme.primary};
-    font-size: 16px;
-    border-radius: 50px;
+    font-size: 15px;
     font-weight: 600;
-    margin: 32px 0;
-    padding: 4px;
-    background: ${({ theme }) => theme.glassBg};
-    backdrop-filter: blur(10px);
-    box-shadow: ${({ theme }) => theme.shadow};
+    margin: 40px 0 32px;
     
     @media (max-width: 768px) {
         font-size: 14px;
-        margin: 24px 0;
+        margin: 32px 0 24px;
+        gap: 8px;
     }
     
     @media (max-width: 500px) {
         font-size: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 `;
 
 export const ToggleButton = styled.div`
-    padding: 12px 28px;
-    border-radius: 50px;
+    padding: 14px 32px;
+    border-radius: 16px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
     
     ${({ active, theme }) =>
-        active && `
+        active ? `
         background: ${theme.gradient};
         color: ${theme.white};
-        box-shadow: ${theme.glow};
-        transform: scale(1.05);
+        box-shadow: ${theme.glow}, 0 8px 24px rgba(0, 217, 255, 0.3);
+        border-color: transparent;
+    ` : `
+        background: ${theme.glassBg};
+        backdrop-filter: blur(10px);
+        border-color: ${theme.glassBorder};
+        color: ${theme.text_secondary};
     `}
     
     &:hover {
-        background: ${({ active, theme }) => 
-            active ? theme.gradient : theme.primary + '15'};
-        transform: scale(1.05);
+        ${({ active, theme }) => !active && `
+            border-color: ${theme.primary};
+            background: ${theme.primary}20;
+            color: ${theme.primary};
+            transform: translateY(-2px);
+        `}
     }
     
     @media (max-width: 768px) {
-        padding: 10px 20px;
+        padding: 12px 24px;
     }
     
     @media (max-width: 500px) {
-        padding: 8px 16px;
+        padding: 10px 20px;
     }
 `;
 
-export const Divider = styled.div`
-    width: 2px;
-    background: ${({ theme }) => theme.primary}40;
-`;
+
 
 export const CardContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 32px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 28px;
     margin-top: 20px;
+    width: 100%;
+    
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
     
     @media (max-width: 768px) {
+        grid-template-columns: 1fr;
         gap: 24px;
+        padding: 0 10px;
     }
 `;
