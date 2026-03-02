@@ -16,10 +16,12 @@ const Description = styled.div`
   width: 100%;
   font-size: 15px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + "99"};
-  margin-bottom: 10px;
+  color: ${({ theme }) => theme.text_secondary};
+  line-height: 1.7;
+  padding-top: 8px;
+  border-top: 1px solid ${({ theme }) => theme.glassBorder};
   @media only screen and (max-width: 768px) {
-    font-size: 12px;
+    font-size: 13px;
   }
 `;
 
@@ -34,48 +36,43 @@ const Span = styled.span`
 
 const Card = styled.div`
   width: 800px;
-  border-radius: 24px;
-  padding: 24px 28px;
-  justify-content: space-between;
+  border-radius: 20px;
+  padding: 28px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  background: ${({ theme }) => theme.glassBg};
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid ${({ theme }) => theme.glassBorder};
-  box-shadow: ${({ theme }) => theme.shadow};
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: ${({ theme }) => theme.card};
+  backdrop-filter: blur(20px);
+  border: 2px solid ${({ theme }) => theme.glassBorder};
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
+    left: 0;
+    width: 5px;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      ${({ theme }) => theme.glassHover},
-      transparent
-    );
-    transition: left 0.6s;
+    background: ${({ theme }) => theme.gradient};
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: ${({ theme }) => theme.shadowHover};
-    border-color: ${({ theme }) => theme.primary}40;
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+    border-color: ${({ theme }) => theme.primary};
 
     &::before {
-      left: 100%;
+      opacity: 1;
     }
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 16px 20px;
+    padding: 20px;
     gap: 12px;
     width: 300px;
   }
@@ -93,16 +90,27 @@ const Card = styled.div`
 const Top = styled.div`
   width: 100%;
   display: flex;
-  gap: 12px;
+  gap: 16px;
+  align-items: flex-start;
 `;
 
 const Image = styled.img`
-  height: 50px;
-  background-color: #000;
-  border-radius: 10px;
-  margin-top: 4px;
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+  background: ${({ theme }) => theme.white};
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  ${Card}:hover & {
+    transform: scale(1.05);
+  }
+
   @media only screen and (max-width: 768px) {
-    height: 40px;
+    height: 50px;
+    width: 50px;
   }
 `;
 
@@ -113,29 +121,42 @@ const Body = styled.div`
 `;
 
 const Role = styled.div`
-  font-size: 18px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_primary + "99"};
+  font-size: 20px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.text_primary};
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.3;
   @media only screen and (max-width: 768px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 
 const Company = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_secondary + "99"};
+  font-size: 15px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.primary};
+  margin-top: 4px;
   @media only screen and (max-width: 768px) {
-    font-size: 12px;
+    font-size: 13px;
   }
 `;
 
 const Date = styled.div`
-  font-size: 12px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + "80"};
+  font-size: 13px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.text_secondary};
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &::before {
+    content: "📅";
+    font-size: 12px;
+  }
+
   @media only screen and (max-width: 768px) {
-    font-size: 10px;
+    font-size: 11px;
   }
 `;
 
@@ -143,14 +164,15 @@ const Skills = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 10px;
+  margin-top: 12px;
 `;
 
 const SkillsLabel = styled.div`
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
+  font-family: "Space Grotesk", sans-serif;
   @media only screen and (max-width: 768px) {
     font-size: 13px;
   }
@@ -159,7 +181,7 @@ const SkillsLabel = styled.div`
 const ItemWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 `;
 
 const Skill = styled.div`

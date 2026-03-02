@@ -1,23 +1,6 @@
 import { motion } from "framer-motion";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { skills } from "../../data/constants";
-
-// Modern Animations
-const shimmer = keyframes`
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
-`;
-
-const fadeInScale = keyframes`
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-`;
 
 const Container = styled.div`
   display: flex;
@@ -42,45 +25,32 @@ const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 52px;
+  font-size: 56px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 900;
   margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  background: ${({ theme }) => theme.gradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-family: "Space Grotesk", sans-serif;
-  letter-spacing: -0.02em;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: ${({ theme }) => theme.gradient};
-    border-radius: 2px;
-  }
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 
   @media (max-width: 768px) {
     margin-top: 12px;
-    font-size: 36px;
-
-    &::after {
-      width: 80px;
-      height: 3px;
-    }
+    font-size: 38px;
   }
 `;
 
 export const Desc = styled.div`
   font-size: 18px;
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
   color: ${({ theme }) => theme.text_secondary};
-  margin-top: 24px;
-  line-height: 1.6;
+  margin-top: 20px;
+  line-height: 1.7;
+  font-weight: 400;
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -92,109 +62,20 @@ const SkillsContainer = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
-  gap: 40px;
+  margin-top: 40px;
+  gap: 32px;
   justify-content: center;
 `;
 
 const Skill = styled(motion.div)`
   width: 100%;
   max-width: 550px;
-  background: ${({ theme }) => theme.glassBg};
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid ${({ theme }) => theme.glassBorder};
-  box-shadow: ${({ theme }) => theme.shadow};
-  border-radius: 24px;
-  padding: 32px 40px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      ${({ theme }) => theme.glassHover},
-      transparent
-    );
-    transition: left 0.6s;
-  }
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: ${({ theme }) => theme.shadowHover};
-    border-color: ${({ theme }) => theme.primary}40;
-
-    &::before {
-      left: 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    max-width: 450px;
-    padding: 24px 28px;
-  }
-
-  @media (max-width: 500px) {
-    max-width: 100%;
-    padding: 20px 24px;
-  }
-`;
-
-const SkillTitle = styled.h2`
-  font-size: 32px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.text_primary};
-  margin-bottom: 28px;
-  text-align: center;
-  font-family: "Space Grotesk", sans-serif;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: ${({ theme }) => theme.primary};
-    border-radius: 2px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 26px;
-    margin-bottom: 20px;
-  }
-`;
-
-const SkillList = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-`;
-
-const SkillItem = styled(motion.div)`
-  font-size: 16px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_primary};
-  border: 2px solid ${({ theme }) => theme.glassBorder};
-  border-radius: 16px;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   background: ${({ theme }) => theme.card};
-  backdrop-filter: blur(10px);
-  cursor: pointer;
+  backdrop-filter: blur(20px);
+  border: 2px solid ${({ theme }) => theme.glassBorder};
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 32px 36px;
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -204,48 +85,99 @@ const SkillItem = styled(motion.div)`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 5px;
     height: 100%;
     background: ${({ theme }) => theme.gradient};
     opacity: 0;
-    transition: opacity 0.4s;
+    transition: opacity 0.4s ease;
   }
 
   &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
     border-color: ${({ theme }) => theme.primary};
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: ${({ theme }) => theme.glow};
 
     &::before {
-      opacity: 0.1;
+      opacity: 1;
     }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 450px;
+    padding: 28px 32px;
+  }
+
+  @media (max-width: 500px) {
+    max-width: 100%;
+    padding: 24px 28px;
+  }
+`;
+
+const SkillTitle = styled.h2`
+  font-size: 28px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.text_primary};
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: "Space Grotesk", sans-serif;
+  position: relative;
+  letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+`;
+
+const SkillList = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+`;
+
+const SkillItem = styled(motion.div)`
+  font-size: 15px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.text_primary};
+  background: ${({ theme }) => theme.primary + "15"};
+  border: 1px solid ${({ theme }) => theme.primary + "40"};
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.primary + "25"};
+    border-color: ${({ theme }) => theme.primary};
+    transform: translateY(-3px);
   }
 
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 10px 16px;
-
-    &:hover {
-      transform: translateY(-2px) scale(1.02);
-    }
+    padding: 9px 14px;
+    gap: 8px;
   }
 
   @media (max-width: 500px) {
     font-size: 13px;
-    padding: 8px 14px;
-    gap: 8px;
+    padding: 8px 12px;
+    gap: 7px;
   }
 `;
 
 const SkillImage = styled.img`
-  width: 28px;
-  height: 28px;
-  position: relative;
-  z-index: 1;
+  width: 24px;
+  height: 24px;
 
   @media (max-width: 768px) {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 
   @media (max-width: 500px) {
@@ -254,29 +186,26 @@ const SkillImage = styled.img`
   }
 `;
 
-const SkillName = styled.span`
-  position: relative;
-  z-index: 1;
-`;
+const SkillName = styled.span``;
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.05,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.9 },
+  hidden: { opacity: 0, y: 15, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
@@ -294,8 +223,8 @@ const Skills = () => {
         >
           <Title>Skills</Title>
           <Desc>
-            Here are some of the technologies and tools I've been working with
-            to build amazing projects.
+            Technologies and tools I use to bring creative ideas to life and
+            deliver high-quality software solutions.
           </Desc>
         </motion.div>
 
@@ -303,12 +232,12 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <Skill
               key={index}
-              initial={{ opacity: 0, y: 50, rotateX: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.15,
+                duration: 0.5,
+                delay: index * 0.1,
                 ease: [0.6, -0.05, 0.01, 0.99],
               }}
             >
@@ -324,8 +253,8 @@ const Skills = () => {
                   <SkillItem
                     key={idx}
                     variants={itemVariants}
-                    whileHover={{ scale: 1.08, y: -8 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <SkillImage src={item.image} alt={item.name} />
                     <SkillName>{item.name}</SkillName>

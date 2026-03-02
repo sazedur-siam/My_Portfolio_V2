@@ -32,45 +32,32 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 52px;
+  font-size: 56px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 900;
   margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  background: ${({ theme }) => theme.gradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-family: "Space Grotesk", sans-serif;
-  letter-spacing: -0.02em;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: ${({ theme }) => theme.gradient};
-    border-radius: 2px;
-  }
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 
   @media (max-width: 768px) {
     margin-top: 12px;
-    font-size: 36px;
-
-    &::after {
-      width: 80px;
-      height: 3px;
-    }
+    font-size: 38px;
   }
 `;
 
 const Desc = styled.div`
   font-size: 18px;
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
   color: ${({ theme }) => theme.text_secondary};
-  margin-top: 24px;
-  line-height: 1.6;
+  margin-top: 20px;
+  line-height: 1.7;
+  font-weight: 400;
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -81,12 +68,26 @@ const Desc = styled.div`
 const TimelineSection = styled.div`
   width: 100%;
   max-width: 1000px;
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
+`;
+
+const StyledTimelineDot = styled(TimelineDot)`
+  width: 16px !important;
+  height: 16px !important;
+  background: ${({ theme }) => theme.gradient} !important;
+  border: 3px solid ${({ theme }) => theme.primary} !important;
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.4) !important;
+`;
+
+const StyledTimelineConnector = styled(TimelineConnector)`
+  background: linear-gradient(180deg, #00d9ff, #7b61ff) !important;
+  width: 3px !important;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
 `;
 
 const Experience = () => {
@@ -101,8 +102,8 @@ const Experience = () => {
         >
           <Title>Experience</Title>
           <Desc>
-            My work experience as a software engineer and working on different
-            companies and projects.
+            Professional journey and contributions to innovative software
+            solutions across diverse projects and technologies.
           </Desc>
         </motion.div>
         <TimelineSection>
@@ -110,14 +111,9 @@ const Experience = () => {
             {experiences.map((experience, index) => (
               <TimelineItem key={index}>
                 <TimelineSeparator>
-                  <TimelineDot variant="outlined" color="secondary" />
+                  <StyledTimelineDot />
                   {index !== experiences.length - 1 && (
-                    <TimelineConnector
-                      style={{
-                        background: "linear-gradient(180deg, #00D9FF, #7B61FF)",
-                        width: "2px",
-                      }}
-                    />
+                    <StyledTimelineConnector />
                   )}
                 </TimelineSeparator>
                 <TimelineContent sx={{ py: "12px", px: 2 }}>
