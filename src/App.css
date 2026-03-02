@@ -1,41 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap');
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    
-}
-
-html{
-  scroll-behavior: smooth;
-}
-
-body{
-  margin: 0px !important;
+* {
+  box-sizing: border-box;
+  margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* width */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+/* Modern Scrollbar */
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 80px;
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e27;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00D9FF, #7B61FF);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00F5FF, #9B7FFF);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+/* Modern Selection */
+::selection {
+  background: rgba(0, 217, 255, 0.3);
+  color: #E8F1FF;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+::-moz-selection {
+  background: rgba(0, 217, 255, 0.3);
+  color: #E8F1FF;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid rgba(0, 217, 255, 0.5);
+  outline-offset: 2px;
+}
+
+a:focus,
+button:focus {
+  outline: none;
+}
+
+/* Smooth animations */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background:#222A35;
+  100% {
+    background-position: 1000px 0;
   }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #575C66;
-    border-radius: 6px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #626970;
-  }
+}
+
+/* Utility classes */
+.gradient-text {
+  background: linear-gradient(135deg, #00F5FF 0%, #00D9FF 50%, #7B61FF 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(15, 22, 41, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}

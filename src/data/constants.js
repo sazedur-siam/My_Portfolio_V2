@@ -41,7 +41,7 @@ export const skills = [
       },
       {
         name: "Ant Design",
-        image:"https://static-00.iconduck.com/assets.00/ant-design-icon-512x512-xbdsnx83.png"
+        image: "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       },
    
       {
@@ -105,8 +105,7 @@ export const skills = [
       }, 
       {
         name: "Netlify",
-        image:
-          "https://seeklogo.com/images/N/netlify-logo-BD8F8A77E2-seeklogo.com.png",
+        image: "https://cdn.worldvectorlogo.com/logos/netlify.svg",
       },
       {
         name: "VS Code",

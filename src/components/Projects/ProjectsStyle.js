@@ -1,42 +1,58 @@
 import styled from 'styled-components';
-import _default from '../../themes/default';
 
 export const Container = styled.div`
-    background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
     z-index: 1;
     align-items: center;
-    clip-path: polygon(0 0, 100% 0, 100% 100%,100% 98%, 0 100%);
+    padding: 80px 0;
 `;
 
 export const Wrapper = styled.div`
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    max-width: 1350px;
-    padding: 10px 0px 100px 0;
-    gap: 12px;
-    @media (max-width: 960px) {
-        flex-direction: column;
-    }
+    max-width: 1400px;
+    padding: 0 20px;
+    gap: 16px;
 `;
 
 export const Title = styled.div`
-font-size: 42px;
-text-align: center;
-font-weight: 600;
-margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
-  @media (max-width: 768px) {
-      margin-top: 12px;
-      font-size: 32px;
-  }
+    font-size: 52px;
+    text-align: center;
+    font-weight: 800;
+    margin-top: 20px;
+    color: ${({ theme }) => theme.text_primary};
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: ${({ theme }) => theme.gradient};
+        border-radius: 2px;
+    }
+    
+    @media (max-width: 768px) {
+        margin-top: 12px;
+        font-size: 36px;
+        
+        &::after {
+            width: 80px;
+            height: 3px;
+        }
+    }
 `;
 
 export const Desc = styled.div`
@@ -44,62 +60,82 @@ export const Desc = styled.div`
     text-align: center;
     max-width: 600px;
     color: ${({ theme }) => theme.text_secondary};
+    margin-top: 24px;
+    line-height: 1.6;
+    
     @media (max-width: 768px) {
-        margin-top: 12px;
         font-size: 16px;
+        margin-top: 16px;
     }
 `;
 
 export const ToggleButtonGroup = styled.div`
     display: flex;
-    border: 1.5px solid ${({ theme }) => theme.primary};
+    border: 2px solid ${({ theme }) => theme.primary}60;
     color: ${({ theme }) => theme.primary};
     font-size: 16px;
-    border-radius: 12px;
-    font-weight: 500;
-    margin: 22px 0px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin: 32px 0;
+    padding: 4px;
+    background: ${({ theme }) => theme.glassBg};
+    backdrop-filter: blur(10px);
+    box-shadow: ${({ theme }) => theme.shadow};
+    
     @media (max-width: 768px) {
+        font-size: 14px;
+        margin: 24px 0;
+    }
+    
+    @media (max-width: 500px) {
         font-size: 12px;
     }
-`
+`;
 
 export const ToggleButton = styled.div`
-    padding: 8px 18px;
-    border-radius: 6px;
+    padding: 12px 28px;
+    border-radius: 50px;
     cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    
     ${({ active, theme }) =>
         active && `
-    background: ${theme.primary + 20};
-    `
-    }
+        background: ${theme.gradient};
+        color: ${theme.white};
+        box-shadow: ${theme.glow};
+        transform: scale(1.05);
+    `}
+    
     &:hover {
-        background: ${({ theme }) => theme.primary + 8};
+        background: ${({ active, theme }) => 
+            active ? theme.gradient : theme.primary + '15'};
+        transform: scale(1.05);
     }
+    
     @media (max-width: 768px) {
-        padding: 6px 8px;
-        border-radius: 4px;
+        padding: 10px 20px;
     }
-`
-export const Divider = styled.div`
-    width: 1.5px;
-    background: ${({ theme }) => theme.primary};
-`
+    
+    @media (max-width: 500px) {
+        padding: 8px 16px;
+    }
+`;
 
+export const Divider = styled.div`
+    width: 2px;
+    background: ${({ theme }) => theme.primary}40;
+`;
 
 export const CardContainer = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 28px;
+    align-items: stretch;
+    gap: 32px;
     flex-wrap: wrap;
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    // grid-gap: 32px;
-    // grid-auto-rows: minmax(100px, auto);
-    // @media (max-width: 960px) {
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-    // @media (max-width: 640px) {
-    //     grid-template-columns: repeat(1, 1fr);
-    // }
+    margin-top: 20px;
+    
+    @media (max-width: 768px) {
+        gap: 24px;
+    }
 `;
