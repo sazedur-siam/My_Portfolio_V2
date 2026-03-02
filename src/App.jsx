@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import styled, { keyframes, ThemeProvider } from "styled-components";
 import "./App.css";
-import Contact from "./components/Contact";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
@@ -185,10 +184,6 @@ function App() {
 
             <SectionWrapper>
               <Education />
-            </SectionWrapper>
-
-            <SectionWrapper>
-              <Contact />
             </SectionWrapper>
 
             <Footer />

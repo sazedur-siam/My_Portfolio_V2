@@ -2,8 +2,8 @@ export const Bio = {
   name: "Md. Sazedur Rahman",
   roles: ["Software Engineer"],
   description:
-    "I am a passionate software engineer with a strong foundation in web application development. I have experience in building scalable applications using modern technologies like React, Node.js, and MongoDB. I am always eager to learn new skills and take on challenging projects.",
-  github: "https://github.com/t3ng221",
+    "I am a passionate software engineer with a strong foundation in web application development. I have experience in building scalable applications using modern technologies like React, Node.js, and React Native. I am always eager to learn new skills and take on challenging projects.",
+  github: "https://github.com/sazedur-siam",
   resume:
     "https://drive.google.com/file/d/1ZZVw9LoLzhKHRan4hdTnwIR6GHBwE5Zk/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/md-sazedur-rahman-837179335/",
@@ -49,6 +49,14 @@ export const skills = [
         image:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAMAAAAt85rTAAAAh1BMVEX///8Af/8Ad/8AfP8Aev/v+P8Adf8Ae/+Puv8Adv+72P8Ac/87k/8Agf/t9f/6/f/U5v+lyf/m8f+10//H3v/C2/9Tnf9npv/e7P+w0P9+s/9Il/+Ywf8rjP8xkP/A2f8ch//Q4/9zrf94r/+HuP+dxP8JhP9aoP/a6f9Mmv+py/+Tv/8Ab/9IeMWVAAAHEElEQVR4nO2d6XqqMBBAJUQodcG1tlqpS2tre9//+W6oWgWyTAiB4DfnNwaOZiQkk6HTQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQZCm2X5Pu3Wda/Y91zl8Mhoan3KY9AghD8btQJgeAhL5YMVtEgTRp+GXHx9Cj0EGU7N2AHz1g/RUXm8EOry76PnsaHqIjc76SrwTQQI7b1nO18vw+5Djx4SeDifvRuc9ns/KzhsszDu8kFcSXk7kRerfZLsmf9e1MTpx8ifoeSH5MWpLzOOBXE/jEVVYxX+/9q+h0alvBW2F4tcq8DwNwb/eWb0g6z79qkOxuwty55ALjtYke3i1gp7fW1R6V/ygNHcGqWA30zttCLJQjF6Nmrzl7UAK7csEx1FYOLxyQXYFhzejRi8854JPKbjjHW9BkN0VV89GzabE+3zwqQTnPd7hVgRZKO4MQzH3XwgRXBT7pzVBNkaiHwbtzjec4FMJ9rkXY0vQJBQnT4X/QhcF2eitVCjGS5meS4Kp4l47FMe+KPgcFNQPxVl+INKw4FolmIYi/ClcHnyOCrJ+eoSFYvweAZpzTzBVXAKeq79VweeuYBqKY0VL23UEa0pXMKxFkF3WeiZpZ/gpGJeZCw5qEmSjt6eJqJl3zlNARYJ0UZdgqsgPxRdg8JUR9CPht1q9IPs6ve9CE9sEGnwlBKm/NfLTFfS8KBeKw+IjeHWCoi5jU5Cd9POm0zwEGsGnKxj1zZ9K9QXT6cX38/c6HSjHZeUFqfdirFdO8DcUmeKsz52RqEawgt5pIMgukhwoKftZkeDq2mAVcyZGgiYIBZeXu001vfOXTf1+YsHJqctX1TvdE+zMCQ1pZb3TQcHO8Gex11oDbptg9aAgCrZX0De5Rco+7IYgJUk/LDPSPH14nRTXBZ0SjH4nfKHTSFnYjZp9OP4RPSa6IEjPuRvxkug+DvnBZWZjKjB0QfA60TN5gs8m/V795vpAfOR/0gHBcHdzyEyyEpYnO9H/zf+gA4I0m7umXE45k1+qeXRA8AARVC6InSiMktsjyELxqFLkLJe2SVC+KJ0GHyf3ZNoqQW5OzxlB9lDbBDvxjt9Pg/4X9/jWCfJTe8QZfC0UZH8cuanQMBDnYLZSMJvbyoJPkkXbUsFOd3EZvUXyPGhTwfnuacmPbjhlBDudUcIUfeIrZi/NBFm8hz7tmeRbdcoKsms/HhJlArSJYPfyj92TLSyrGZQUBGEgeL3n+k9G1+CmYHbUZHQNVgVfygk+Z8e9Zmkk7gnG+1w20Z0JFp8970qQN3twT4LchIY7Elxwj78fwck/7uH3Iyg4/H4EBbOMZoLcJlEQxvNKb2a7ZYLCnT13Iije2XMXgtL1DJHguDWCis0FbRdULmS0XFC9FFWrIP+7Li8I2NkjFuR/My4Jgnb2tFcwfodlkLZVEJySUatg2XnRAjPwzh5hLQsrgntuo9qCk0/45gJ/JWjEiuCQcrfTaApq7ewR1pP5sCHYeeYNqvQEtXb2UF84FW9HkHtn1hEc6ezs8SNJOrYtQc7YCi6otbNHtn/NpmDxBg0W1NrZI9+BaFUw/3wDFNTa2UND1R5Sq4Lpn/S1fQqpfTRKNHb2QPZCWBZkofi36hEAUvvn/zSCD7SP27Zgmq91mkYJ14CDBXlaPMgGtBfCvmAaigGlwQZSfwwsSAlwmb0OQfbHsVzCKnMBBf0AXJimHkEwMMFgBc8DeW2foF6dNn5BIIcFQ16KpZihYETrqqA8y4sDvw6Cs4KKLK8CbwPRoM9JQV+zSGK+/KHrgv5Ga49qV7hO46og0coRFKdKuyroJxrtyJPd3RQM4RVSLsPfdgn6R2AboA0nDgp6FDb8HMuDz2FBUB+FrNO4KugRZf1v2DqNs4Kqis/xErwr0bAMdXlUY1HZk8TYg08V11Smvoj6aUJUfF1nx6VH9QZFFQJ4HuQWX59oVGBLW2jKD/ZEHxY6mNY6TbQ2rMllAnBOJlv7Rm+dprqyOWUAz6pFyeVngJc/9G5LYzXEF7dmNI/zs73OImmuuFkzaJSDCnv9Rb/XluC7MNGJJz/UKDfAKzDYBJzC+1VQac0qQ0YlS8dJ9aSLpLVTrvifGNUiaQP86Px5KKBEtUjaBJWFIqxUchNoJVqI9Y5OBV+WqWcaijrlyhvhQbt00C00NNyLXAPDhV7poBvKvDKgCbTSLm7oVVqt0Spl7orOB18W3VA0e/FKE2gmr5m+OqcJ4APUakul1sgLKBTJ4bHpCy2PeoAaBtW9gKwJFKHYzuDLIhugRoIiUC1jKpigr+ONqjXBuyvaexFnExQGqHZfpdoE2ddt2H4ZbiNcB6hk0OhcvD1OoRhGD47OSJjDQrF3d8GXw+H5FgRBEARBEARBEARBEARBEARBEARBEARBEMZ/Z7h0SlKcxhsAAAAASUVORK5CYII=",
       },
+      {
+        name: "Styled Components",
+        image: "https://styled-components.com/logo.png",
+      },
+      {
+        name: "Shadcn UI",
+        image: "https://ui.shadcn.com/apple-touch-icon.png",
+      },
     ],
   },
   {
@@ -81,17 +89,27 @@ export const skills = [
     ],
   },
   {
-    title: "Android",
+    title: "Mobile Development",
     skills: [
       {
-        name: "Java",
+        name: "React Native",
         image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
       },
       {
-        name: "Kotlin",
+        name: "Expo",
         image:
-          "https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg",
+          "https://cdn.worldvectorlogo.com/logos/expo-1.svg",
+      },
+      {
+        name: "Android Studio",
+        image:
+          "https://developer.android.com/static/studio/images/new-studio-logo-1_1920.png",
+      },
+      {
+        name: "React Navigation",
+        image:
+          "https://reactnavigation.org/img/spiro.svg",
       },
     ],
   },
@@ -129,10 +147,28 @@ export const skills = [
 export const experiences = [
   {
     id: 1,
+    img: "https://framerusercontent.com/images/45QzzHjhiZ4M16bV7RZyePZc8Ws.png",
+    role: "Associate Software Engineer - L2",
+    company:"Strativ AB",
+    desc: "I am currently working as an Associate Software Engineer - L2 at Strativ AB, where I am involved in developing and maintaining web application. My role includes collaborating with cross-functional teams to deliver high-quality software solutions, implementing new features, and optimizing existing code for performance and scalability.",
+    date: "July 2024 - Running",
+    skills:[
+      "JavaScript",
+      "TypeScript",
+      "React JS",
+     "Styled Components",
+     "Ant Design",
+     "Zustand",
+     "React Query",
+    
+    ]
+  },
+  {
+    id: 2,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPFdj1NGoUXBUelRa-tlKoPUE5cxfdV96IzCg1OcNciQ&s",
     role: "Software Engineer Intern",
     company: "Spring Rain Pvt. Ltd.",
-    date: "Feb 2024 - Jube 2024",
+    date: "Feb 2024 - June 2024",
     desc: "During my internship at Spring Rain Pvt. Ltd., I worked as a Software Engineer Intern where I was responsible for developing and maintaining web applications using Next.js and Node.js. I collaborated with senior developers to implement new features, fix bugs, and optimize application performance. This experience enhanced my skills in full-stack development and provided me with valuable insights into the software development lifecycle.",
     skills: [
       "JavaScript",
@@ -147,24 +183,6 @@ export const experiences = [
       "Docker",
       "AWS",
     ],
-  },
-  {
-    id:2,
-    img: "https://framerusercontent.com/images/45QzzHjhiZ4M16bV7RZyePZc8Ws.png",
-    role: "Software Engineer (J1)",
-    company:"Strativ AB",
-    desc: "I am currently working as a Software Engineer (J1) at Strativ AB, where I am involved in developing and maintaining web applications using React JS and Node JS. My role includes collaborating with cross-functional teams to deliver high-quality software solutions, implementing new features, and optimizing existing code for performance and scalability.",
-    date: "July 2024 - Running",
-    skills:[
-      "JavaScript",
-      "TypeScript",
-      "React JS",
-     "Styled Components",
-     "Ant Design",
-     "Zustand",
-     "React Query",
-    
-    ]
   }
 ];
 
@@ -208,7 +226,7 @@ export const projects = [
       "https://cdn.dribbble.com/userupload/13614735/file/original-323207698cdce4d4155355da751f77ee.jpg?crop=0x0-5601x4201&resize=400x300&vertical=center",
     tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux", "Firebase"],
     category: "web app",
-    github: "https://github.com/t3ng221/E-Med-Appointment",
+    github: "https://github.com/sazedur-siam/E-Med-Appointment",
     webapp: "https://emedic-appointment.netlify.app/",
   },
   {
@@ -220,8 +238,8 @@ export const projects = [
       "https://web.programming-hero.com/home/_next/image?url=https%3A%2F%2Fd3lhjpscbhcyrv.cloudfront.net%2Fproject%2FProject-7-Ema-John.jpg&w=3840&q=75",
     tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
     category: "web app",
-    github: "https://github.com/t3ng221/ema-john-simple",
-    webapp: "https://github.com/t3ng221/ema-john-simple",
+    github: "https://github.com/sazedur-siam/ema-john-simple",
+    webapp: "https://github.com/sazedur-siam/ema-john-simple",
   },
 
   {
@@ -233,7 +251,7 @@ export const projects = [
       "https://static.packt-cdn.com/products/9781788293969/graphics/assets/626fcf76-83a4-4d76-af71-e405ec211f12.png",
     tags: ["React Js", "Material UI", "Local Storage", "Redux"],
     category: "web app",
-    github: "https://github.com/t3ng221/ToDoApp-Redux",
+    github: "https://github.com/sazedur-siam/ToDoApp-Redux",
     webapp: "todot3ng.netlify.app/",
   },
 
