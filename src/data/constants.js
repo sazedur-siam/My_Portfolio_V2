@@ -239,13 +239,13 @@ export const projects = [
 
   {
     id: 7,
-    title: "E-Med Reminder App",
+    title: "TrackTheSun",
     description:
-      "A android quiz app made with Java and Firebase. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the quiz categories and can create a new quiz. It has a leaderboard where users can see the top 10 scorers. It has a search bar where users can search for a particular quiz.",
-    image: "https://techwiser.com/wp-content/uploads/2020/05/course-pill.jpg",
-    tags: ["Java", "Android Studio"],
+      "A React Native mobile application that tracks the sun's position in real-time to help users find the best seat in public transportation with minimal sun exposure and heat. The app uses GPS and solar position algorithms to provide optimal seating recommendations based on the sun's angle and intensity.",
+    image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&auto=format&fit=crop&q=60",
+    tags: ["React Native", "Expo", "JavaScript", "Solar Position Algorithm", "GPS"],
     category: "android app",
-    github: "https://github.com/t3ng221/E-Med-Reminder",
-    webapp: "https://github.com/t3ng221/E-Med-Reminder",
+    github: "https://github.com/sazedur-siam/track-the-sun",
+    webapp: "https://github.com/sazedur-siam/track-the-sun",
   },
 ];
