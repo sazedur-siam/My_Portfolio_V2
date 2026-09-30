@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import styled, { keyframes, ThemeProvider } from "styled-components";
 import "./App.css";
+import { training } from "./data/constants";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
@@ -158,42 +158,49 @@ function App() {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Router>
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Body>
-          {/* Animated Background Elements */}
-          <GridBackground />
-          <GradientOrb className="orb1" />
-          <GradientOrb className="orb2" />
-          <GradientOrb className="orb3" />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Body>
+        {/* Animated Background Elements */}
+        <GridBackground />
+        <GradientOrb className="orb1" />
+        <GradientOrb className="orb2" />
+        <GradientOrb className="orb3" />
 
-          <ContentWrapper>
-            <HeroSection />
+        <ContentWrapper>
+          <HeroSection />
 
-            <SectionWrapper>
-              <Skills />
-            </SectionWrapper>
+          <SectionWrapper>
+            <Skills />
+          </SectionWrapper>
 
-            <SectionWrapper>
-              <Experience />
-            </SectionWrapper>
+          <SectionWrapper>
+            <Experience />
+          </SectionWrapper>
 
-            <SectionWrapper>
-              <Projects openModal={openModal} setOpenModal={setOpenModal} />
-            </SectionWrapper>
+          <SectionWrapper>
+            <Experience
+              id="training"
+              title="Training"
+              description="Internships and hands-on training that built my foundation in full-stack development."
+              items={training}
+            />
+          </SectionWrapper>
 
-            <SectionWrapper>
-              <Education />
-            </SectionWrapper>
+          <SectionWrapper>
+            <Projects openModal={openModal} setOpenModal={setOpenModal} />
+          </SectionWrapper>
 
-            <Footer />
-          </ContentWrapper>
+          <SectionWrapper>
+            <Education />
+          </SectionWrapper>
 
-          {openModal.state && (
-            <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
-          )}
-        </Body>
-      </Router>
+          <Footer />
+        </ContentWrapper>
+
+        {openModal.state && (
+          <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
+        )}
+      </Body>
     </ThemeProvider>
   );
 }

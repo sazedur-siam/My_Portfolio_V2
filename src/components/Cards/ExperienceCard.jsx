@@ -206,7 +206,177 @@ const Skill = styled.div`
   }
 `;
 
+const Tagline = styled.div`
+  font-size: 14px;
+  font-style: italic;
+  color: ${({ theme }) => theme.text_secondary};
+  margin-top: 6px;
+  line-height: 1.5;
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const Roles = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid ${({ theme }) => theme.glassBorder};
+`;
+
+const RoleBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
+
+const RoleHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+`;
+
+const RoleTitle = styled.div`
+  font-size: 17px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.text_primary};
+  font-family: "Space Grotesk", sans-serif;
+
+  span {
+    font-weight: 500;
+    color: ${({ theme }) => theme.text_secondary};
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 15px;
+  }
+`;
+
+const RoleDate = styled.div`
+  font-size: 13px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.primary};
+  white-space: nowrap;
+`;
+
+const ProjectBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 14px;
+  border-left: 2px solid ${({ theme }) => theme.primary + "40"};
+`;
+
+const ProjectName = styled.div`
+  font-size: 15px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
+  line-height: 1.5;
+
+  em {
+    font-weight: 400;
+    color: ${({ theme }) => theme.text_secondary};
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 13px;
+  }
+`;
+
+const Points = styled.ul`
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: ${({ theme }) => theme.text_secondary};
+
+  li::marker {
+    color: ${({ theme }) => theme.primary};
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const Stack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+`;
+
+const StackTag = styled.span`
+  font-size: 12px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.text_primary};
+  background: ${({ theme }) => theme.primary + "15"};
+  border: 1px solid ${({ theme }) => theme.primary + "40"};
+  border-radius: 6px;
+  padding: 2px 8px;
+`;
+
+const RoleList = ({ roles }) => (
+  <Roles>
+    {roles.map((role) => (
+      <RoleBlock key={role.title}>
+        <RoleHeader>
+          <RoleTitle>
+            {role.title}
+            {role.team && <span> — {role.team}</span>}
+          </RoleTitle>
+          <RoleDate>{role.date}</RoleDate>
+        </RoleHeader>
+        {role.projects?.map((project) => (
+          <ProjectBlock key={project.name}>
+            <ProjectName>
+              {project.name}
+              {project.type && <em> ({project.type})</em>}
+              {project.summary && <> – {project.summary}</>}
+              {project.team && <em> · {project.team}</em>}
+            </ProjectName>
+            {project.stack && (
+              <Stack>
+                {project.stack.map((tech) => (
+                  <StackTag key={tech}>{tech}</StackTag>
+                ))}
+              </Stack>
+            )}
+            <Points>
+              {project.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </Points>
+          </ProjectBlock>
+        ))}
+      </RoleBlock>
+    ))}
+  </Roles>
+);
+
 const ExperienceCard = ({ experience }) => {
+  if (experience.roles) {
+    return (
+      <Card>
+        <Top>
+          <Image src={experience.img} alt={experience.company} />
+          <Body>
+            <Role>{experience.company}</Role>
+            {experience.location && <Company>{experience.location}</Company>}
+            <Date>{experience.date}</Date>
+            {experience.tagline && <Tagline>{experience.tagline}</Tagline>}
+          </Body>
+        </Top>
+        <RoleList roles={experience.roles} />
+      </Card>
+    );
+  }
+
   return (
     <Card>
       <Top>

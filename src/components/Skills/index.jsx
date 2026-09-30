@@ -171,18 +171,19 @@ const SkillItem = styled(motion.div)`
   }
 `;
 
-const SkillImage = styled.img`
-  width: 24px;
-  height: 24px;
+const SkillIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: ${({ $color, theme }) => $color || theme.text_primary};
 
   @media (max-width: 768px) {
-    width: 22px;
-    height: 22px;
+    font-size: 20px;
   }
 
   @media (max-width: 500px) {
-    width: 20px;
-    height: 20px;
+    font-size: 18px;
   }
 `;
 
@@ -256,7 +257,9 @@ const Skills = () => {
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <SkillImage src={item.image} alt={item.name} />
+                    <SkillIcon $color={item.color} aria-hidden="true">
+                      <item.icon />
+                    </SkillIcon>
                     <SkillName>{item.name}</SkillName>
                   </SkillItem>
                 ))}

@@ -90,9 +90,14 @@ const StyledTimelineConnector = styled(TimelineConnector)`
   box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
 `;
 
-const Experience = () => {
+const Experience = ({
+  id = "experience",
+  title = "Experience",
+  description = "Professional journey and contributions to innovative software solutions across diverse projects and technologies.",
+  items = experiences,
+}) => {
   return (
-    <Container id="experience">
+    <Container id={id}>
       <Wrapper>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -100,19 +105,16 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Title>Experience</Title>
-          <Desc>
-            Professional journey and contributions to innovative software
-            solutions across diverse projects and technologies.
-          </Desc>
+          <Title>{title}</Title>
+          <Desc>{description}</Desc>
         </motion.div>
         <TimelineSection>
           <Timeline>
-            {experiences.map((experience, index) => (
+            {items.map((experience, index) => (
               <TimelineItem key={index}>
                 <TimelineSeparator>
                   <StyledTimelineDot />
-                  {index !== experiences.length - 1 && (
+                  {index !== items.length - 1 && (
                     <StyledTimelineConnector />
                   )}
                 </TimelineSeparator>

@@ -122,19 +122,14 @@ export const ToggleButton = styled.div`
 
 
 export const CardContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 28px;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px auto 0;
     width: 100%;
-    
-    @media (max-width: 1200px) {
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    }
-    
+    max-width: 1000px;
+
     @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 24px;
         padding: 0 10px;
     }
 `;
