@@ -25,8 +25,8 @@ const Navbar = () => {
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to="/">
-          <a
+        <NavLogo href="#">
+          <div
             style={{
               display: "flex",
               alignItems: "center",
@@ -36,7 +36,7 @@ const Navbar = () => {
             }}
           >
             <DiCssdeck size="3rem" /> <Span>Sazedur</Span>
-          </a>
+          </div>
         </NavLogo>
         <MobileIcon>
           <FaBars
@@ -49,6 +49,7 @@ const Navbar = () => {
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#experience">Experience</NavLink>
+          <NavLink href="#training">Training</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#education">Education</NavLink>
         </NavItems>
@@ -82,6 +83,14 @@ const Navbar = () => {
               }}
             >
               Experience
+            </MobileLink>
+            <MobileLink
+              href="#training"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              Training
             </MobileLink>
             <MobileLink
               href="#projects"

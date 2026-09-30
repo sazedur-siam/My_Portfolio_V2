@@ -1,4 +1,3 @@
-import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
@@ -33,7 +32,7 @@ export const NavbarContainer = styled.div`
   }
 `;
 
-export const NavLogo = styled(LinkR)`
+export const NavLogo = styled.a`
   display: flex;
   justify-content: start;
   align-items: center;

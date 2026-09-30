@@ -196,7 +196,7 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
                         }}
                         onClick={() => setOpenModal({ state: false, project: null })}
                     />
-                    <Image src={project?.image} />
+                    {project?.image && <Image src={project.image} alt={project.title} />}
                     <Title>{project?.title}</Title>
                     <Date>{project?.date}</Date>
                     <Tags>

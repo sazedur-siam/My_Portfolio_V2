@@ -26,11 +26,10 @@ const Projects = ({ openModal, setOpenModal }) => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    hidden: { opacity: 0, x: -30 },
     visible: {
       opacity: 1,
-      y: 0,
-      scale: 1,
+      x: 0,
       transition: {
         duration: 0.5,
         ease: [0.6, -0.05, 0.01, 0.99],
@@ -38,7 +37,7 @@ const Projects = ({ openModal, setOpenModal }) => {
     },
     exit: {
       opacity: 0,
-      scale: 0.9,
+      x: 30,
       transition: {
         duration: 0.3,
       },
@@ -105,14 +104,10 @@ const Projects = ({ openModal, setOpenModal }) => {
           >
             <CardContainer>
               {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  variants={itemVariants}
-                  whileHover={{ y: -10 }}
-                  layout
-                >
+                <motion.div key={project.id} variants={itemVariants} layout>
                   <ProjectCard
                     project={project}
+                    index={index}
                     openModal={openModal}
                     setOpenModal={setOpenModal}
                   />
