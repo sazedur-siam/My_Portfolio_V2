@@ -2,31 +2,43 @@ import { GiBearFace } from "react-icons/gi";
 import {
   SiAndroidstudio,
   SiAntdesign,
+  SiClaude,
+  SiCss,
   SiExpo,
   SiExpress,
   SiFigma,
   SiFirebase,
   SiGit,
+  SiHtml5,
   SiJavascript,
   SiMongodb,
   SiMui,
   SiNetlify,
+  SiNextdotjs,
   SiNodedotjs,
   SiPostman,
   SiReact,
+  SiReactquery,
   SiRedux,
   SiShadcnui,
+  SiSocketdotio,
   SiStyledcomponents,
   SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
-import { TbBrandReactNative, TbRoute } from "react-icons/tb";
+import {
+  TbBrandOpenai,
+  TbBrandReactNative,
+  TbFileText,
+  TbRoute,
+} from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 
 export const Bio = {
   name: "Md. Sazedur Rahman",
   roles: ["Software Engineer"],
   description:
-    "Software Engineer with 2+ years of production experience building scalable web applications using React, Next.js, TypeScript, Node.js, Express, and MongoDB. Experienced in developing customer-facing platforms, real-time systems, analytics dashboards, and AI-powered features used by 1,000+ customers.",
+    "Software Engineer with 2+ years of professional experience building production-grade applications with React, Next.js, and TypeScript, plus full-stack projects in Node.js, Express, and MongoDB. I work directly with Swedish clients to understand business needs, clarify requirements, and turn them into practical frontend solutions, from an investment management platform analyzing 650K+ companies to AI analytics and AI interview platforms.",
   github: "https://github.com/sazedur-siam",
   resume:
     "https://drive.google.com/file/d/1ZZVw9LoLzhKHRan4hdTnwIR6GHBwE5Zk/view?usp=sharing",
@@ -35,21 +47,37 @@ export const Bio = {
 
 export const skills = [
   {
-    title: "Frontend",
+    title: "Languages",
     skills: [
       { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "HTML", icon: SiHtml5, color: "#E34F26" },
+    ],
+  },
+  {
+    title: "Frontend",
+    skills: [
       { name: "React Js", icon: SiReact, color: "#61DAFB" },
-      { name: "Redux", icon: SiRedux, color: "#764ABC" },
+      { name: "Next Js", icon: SiNextdotjs },
       { name: "Zustand", icon: GiBearFace, color: "#C9853A" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-      { name: "Ant Design", icon: SiAntdesign, color: "#1677FF" },
-      { name: "Material UI", icon: SiMui, color: "#007FFF" },
+      { name: "TanStack Query", icon: SiReactquery, color: "#FF4154" },
+      { name: "Redux", icon: SiRedux, color: "#764ABC" },
+      { name: "WebSocket", icon: SiSocketdotio },
+    ],
+  },
+  {
+    title: "UI & Styling",
+    skills: [
+      { name: "CSS", icon: SiCss, color: "#663399" },
       { name: "Styled Components", icon: SiStyledcomponents, color: "#DB7093" },
+      { name: "Ant Design", icon: SiAntdesign, color: "#1677FF" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Material UI", icon: SiMui, color: "#007FFF" },
       { name: "Shadcn UI", icon: SiShadcnui },
     ],
   },
   {
-    title: "Backend",
+    title: "Backend & Data",
     skills: [
       { name: "Node Js", icon: SiNodedotjs, color: "#5FA04E" },
       { name: "Express Js", icon: SiExpress },
@@ -67,9 +95,12 @@ export const skills = [
     ],
   },
   {
-    title: "Others",
+    title: "Tools",
     skills: [
       { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "Claude", icon: SiClaude, color: "#D97757" },
+      { name: "Codex", icon: TbBrandOpenai },
+      { name: "OpenSpec", icon: TbFileText },
       { name: "Netlify", icon: SiNetlify, color: "#00C7B7" },
       { name: "VS Code", icon: VscVscode, color: "#007ACC" },
       { name: "Postman", icon: SiPostman, color: "#FF6C37" },
@@ -82,37 +113,36 @@ export const experiences = [
   {
     id: 1,
     img: "https://framerusercontent.com/images/45QzzHjhiZ4M16bV7RZyePZc8Ws.png",
-    company: "Strativ",
+    company: "Strativ AB",
     location: "Dhaka, Bangladesh",
-    date: "Oct 2024 - Present",
+    date: "Jul 2024 - Present",
     tagline:
       "Swedish software company with teams in Stockholm and Dhaka, building software for Scandinavian clients",
     roles: [
       {
-        title: "Associate Software Engineer",
-        team: "Scandinavian Fullstack BD",
-        date: "Dec 2025 - Present",
+        title: "Associate Software Engineer - L2",
+        date: "Jul 2024 - Present",
         projects: [
           {
-            name: "Pricer",
+            name: "IMS",
             type: "client",
-            summary: "Returns (RMA) portal",
-            team: "team of 3",
-            stack: ["React", "Redux Toolkit", "Ant Design", "react-intl"],
+            summary: "Investment Management System",
+            stack: ["React", "TypeScript", "TanStack Query", "Lexical", "dnd kit"],
             points: [
-              "Built package-photo upload for return tickets, with a QR code for direct upload from the customer's phone",
-              "Implemented a responsive layout for handheld scanners (PDAs) used by warehouse staff to process returns",
-              "Delivered illustrated Claim Instructions per claim reason and a checklist that gates ticket submission",
+              "Contributed to an investment management platform that helped the client identify 5 potential companies to invest in",
+              "Developed the Dealflow module for analyzing 650K+ Swedish companies using key investment metrics such as AI review, GPM, ROCE, YoY revenue growth, and gross/net revenue, helping users identify companies matching investment criteria",
+              "Built the Hot Deals module for moving potential companies from Dealflow, enabling users to record outreach, track communication history, and manage companies through different deal stages",
+              "Developed the Actions module to centralize internal, portfolio-related, and personal tasks, giving users a single place to organize, assign, and track day-to-day work",
+              "Built the Meeting module for managing meeting notes, helping users keep track of discussions, decisions, and follow-ups",
             ],
           },
           {
             name: "Strativ AI Analytics",
             type: "internal",
             summary: "AI usage observability",
-            team: "team of 5-10",
-            stack: ["Next.js 16", "TypeScript", "Recharts"],
+            stack: ["Next.js", "TypeScript", "Recharts"],
             points: [
-              "Engineered a six-section AI usage and cost dashboard on Next.js 16 async Server Components",
+              "Built an AI usage observability platform tracking Claude usage across 50+ developers, enabling the team to monitor usage patterns, analyze AI adoption, and make data-driven decisions around AI tool utilization",
               "Built Recharts views of cost and token usage by project, user, tool, and model, scoped by user role",
             ],
           },
@@ -120,30 +150,19 @@ export const experiences = [
             name: "Recruitment AI",
             type: "internal",
             summary: "AI interview platform",
-            team: "team of 5",
-            stack: ["React 19", "TypeScript", "Zustand", "WebSocket"],
+            stack: ["React", "TypeScript", "Zustand", "WebSocket"],
             points: [
-              "Developed a real-time interview UI streaming AI responses token by token over WebSocket",
-              "Built chunked video/audio capture with IndexedDB buffering and auto-retry, so recordings survive failed uploads",
-              "Created an integrity monitor flagging tab switches, clipboard events, DevTools use, and typing anomalies",
+              "Developed an AI interview platform for first-round interviews, making it easier to sort candidates",
+              "Built a real-time interview UI streaming AI responses token by token over WebSocket",
             ],
           },
-        ],
-      },
-      {
-        title: "Software Engineer (Frontend)",
-        team: "Strativ BD",
-        date: "Oct 2024 - Nov 2025",
-        projects: [
           {
-            name: "IMS",
-            summary: "Investment management system",
-            team: "team of 5",
-            stack: ["React", "TypeScript", "TanStack Query", "Lexical", "dnd kit"],
+            name: "Pricer",
+            type: "client",
+            summary: "Return management portal",
+            stack: ["React", "Redux Toolkit", "Ant Design"],
             points: [
-              "Delivered 5 modules (Actions, Decisions, Dealflow, HotDeals, API Keys) from UI design to API integration",
-              "Built a Lexical rich-text editor with real-time WebSocket sync and a drag-and-drop Kanban board (dnd kit)",
-              "Optimized rendering of large record sets with list virtualization and pagination",
+              "Developed a package-photo upload workflow for return items with QR code scanning, enabling users to quickly open return records on mobile and upload photos directly, simplifying the return inspection process",
             ],
           },
         ],
@@ -156,24 +175,21 @@ export const training = [
   {
     id: 1,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPFdj1NGoUXBUelRa-tlKoPUE5cxfdV96IzCg1OcNciQ&s",
-    role: "Software Engineer Intern",
-    company: "Spring Rain Pvt. Ltd.",
-    date: "Feb 2024 - June 2024",
-    desc: "During my internship at Spring Rain Pvt. Ltd., I worked as a Software Engineer Intern where I was responsible for developing and maintaining web applications using Next.js and Node.js. I collaborated with senior developers to implement new features, fix bugs, and optimize application performance. This experience enhanced my skills in full-stack development and provided me with valuable insights into the software development lifecycle.",
+    role: "Career Development Program",
+    company: "Spring Rain Private Ltd, Dhaka, Bangladesh",
+    date: "Jan 2024 - Jun 2024",
+    desc: "Completed professional training in JavaScript, Node.js, React, AWS Lambda, Git, DynamoDB, ClickUp, and basic SQA.",
     skills: [
       "JavaScript",
-      "TypeScript",
-      "Next Js",
-      "Tailwind CSS",
-      "Material UI",
       "Node Js",
-      "Express JS",
-      "MongoDB",
-      "Postman",
-      "Docker",
-      "AWS",
+      "React Js",
+      "AWS Lambda",
+      "DynamoDB",
+      "Git",
+      "ClickUp",
+      "SQA",
     ],
-  }
+  },
 ];
 
 export const education = [
@@ -182,7 +198,7 @@ export const education = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6W1vSMEDqTzLh8VYEXlBJVrKkBV_mPOSrGA&s",
     school: "Daffodil International University",
     date: "April 2018 - July 2022",
-    grade: "3.62 CGPA",
+    grade: "3.62/4.00",
     desc: "I completed my Bachelor's degree in Computer Science and Engineering from Daffodil International University. During my time there, I gained a strong foundation in software development, algorithms, data structures, and web technologies. I also participated in various projects and internships that helped me apply my theoretical knowledge to real-world scenarios.", 
     degree: "Bachelor of Science - Computer Science and Engineering",
   },
@@ -209,13 +225,25 @@ export const education = [
 export const projects = [
   {
     id: 10,
-    title: "DevFit",
+    title: "DevFit AI",
     description:
       "An AI-assisted tool that finds the best-fit developer for a codebase. Paste a public GitHub repo URL and DevFit builds a digest of the repository, uses Gemini to derive what kind of developer it needs, then ranks a team with deterministic, auditable scores and plain-language explanations. Includes role-based accounts, an admin dashboard, analysis history, and per-user API keys encrypted with AES-256-GCM.",
-    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "MongoDB", "NextAuth", "Gemini AI"],
+    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "MongoDB", "NextAuth", "Gemini API"],
     category: "web app",
     github: "https://github.com/sazedur-siam/dev-fit-ai",
     webapp: "https://dev-fit-ai.vercel.app",
+  },
+  {
+    id: 9,
+    title: "E-Medic Appointment",
+    description:
+      "A medical appointment platform for patients, doctors, and admins with booking and digital prescriptions. Patients book appointments with doctors, keep their previous prescriptions, and upload prescriptions during an appointment, so their checkup history stays in one place.",
+    image:
+      "https://cdn.dribbble.com/userupload/13614735/file/original-323207698cdce4d4155355da751f77ee.jpg?crop=0x0-5601x4201&resize=400x300&vertical=center",
+    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux", "Firebase"],
+    category: "web app",
+    github: "https://github.com/sazedur-siam/E-Med-Appointment",
+    webapp: "https://emedic-appointment.netlify.app/",
   },
   {
     id: 7,
@@ -227,18 +255,6 @@ export const projects = [
     category: "android app",
     github: "https://github.com/sazedur-siam/track-the-sun",
     webapp: "https://github.com/sazedur-siam/track-the-sun",
-  },
-  {
-    id: 9,
-    title: "E-Medic",
-    description:
-      "I made an appointment site for making appointments with doctors. Users can also store their previous prescriptions and upload prescriptions during an appointment. This helps users to store their previous checkup history easily.",
-    image:
-      "https://cdn.dribbble.com/userupload/13614735/file/original-323207698cdce4d4155355da751f77ee.jpg?crop=0x0-5601x4201&resize=400x300&vertical=center",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux", "Firebase"],
-    category: "web app",
-    github: "https://github.com/sazedur-siam/E-Med-Appointment",
-    webapp: "https://emedic-appointment.netlify.app/",
   },
   {
     id: 0,
