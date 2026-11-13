@@ -1,129 +1,96 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { Download, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
-  Nav,
-  NavLink,
-  NavbarContainer,
-  Span,
-  NavLogo,
-  NavItems,
-  GitHubButton,
-  ButtonContainer,
-  MobileIcon,
-  MobileMenu,
-  MobileNavLogo,
-  MobileLink,
-} from "./NavbarStyledComponent";
-import { DiCssdeck } from "react-icons/di";
-import { FaBars } from "react-icons/fa";
-import { Bio } from "../../data/constants";
-import { Close, CloseRounded } from "@mui/icons-material";
-import { useTheme } from "styled-components";
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Bio, navLinks } from "@/data/constants";
+
+const Wordmark = () => (
+  <a href="#home" className="text-lg font-medium tracking-tight">
+    Sazedur <span className="text-primary">Rahman</span>
+  </a>
+);
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const theme = useTheme();
+  const [open, setOpen] = useState(false);
+
+  // The sheet is mobile-only; close it if the viewport grows to the desktop layout.
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const close = (event) => event.matches && setOpen(false);
+    desktop.addEventListener("change", close);
+    return () => desktop.removeEventListener("change", close);
+  }, []);
+
   return (
-    <Nav>
-      <NavbarContainer>
-        <NavLogo href="#">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              color: "white",
-              marginBottom: "20;",
-              cursor: "pointer",
-            }}
-          >
-            <DiCssdeck size="3rem" /> <Span>Sazedur</Span>
-          </div>
-        </NavLogo>
-        <MobileIcon>
-          <FaBars
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          />
-        </MobileIcon>
-        <NavItems>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href="#skills">Skills</NavLink>
-          <NavLink href="#experience">Experience</NavLink>
-          <NavLink href="#training">Training</NavLink>
-          <NavLink href="#projects">Projects</NavLink>
-          <NavLink href="#education">Education</NavLink>
-        </NavItems>
-        <ButtonContainer>
-          <GitHubButton href={Bio.github} target="_blank">
-            Github Profile
-          </GitHubButton>
-        </ButtonContainer>
-        {isOpen && (
-          <MobileMenu isOpen={isOpen}>
-            <MobileLink
-              href="#about"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              About
-            </MobileLink>
-            <MobileLink
-              href="#skills"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              Skills
-            </MobileLink>
-            <MobileLink
-              href="#experience"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              Experience
-            </MobileLink>
-            <MobileLink
-              href="#training"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              Training
-            </MobileLink>
-            <MobileLink
-              href="#projects"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              Projects
-            </MobileLink>
-            <MobileLink
-              href="#education"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              Education
-            </MobileLink>
-            <GitHubButton
-              style={{
-                padding: "10px 16px",
-                background: `${theme.primary}`,
-                color: "white",
-                width: "max-content",
-              }}
-              href={Bio.github}
-              target="_blank"
-            >
-              Github Profile
-            </GitHubButton>
-          </MobileMenu>
-        )}
-      </NavbarContainer>
-    </Nav>
+    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <Wordmark />
+
+        <ul className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <Button asChild size="lg" className="hidden px-4 md:inline-flex">
+          <a href={Bio.resume} target="_blank" rel="noreferrer">
+            <Download data-icon="inline-start" />
+            Download CV
+          </a>
+        </Button>
+
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
+              <Menu className="size-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-72 p-0">
+            <SheetHeader className="border-b border-border p-4">
+              <SheetTitle className="font-medium">
+                Sazedur <span className="text-primary">Rahman</span>
+              </SheetTitle>
+              <SheetDescription>{Bio.title}</SheetDescription>
+            </SheetHeader>
+            <ul className="flex flex-col gap-1 px-3">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="px-6 pt-2">
+              <Button asChild size="lg" className="w-full">
+                <a href={Bio.resume} target="_blank" rel="noreferrer">
+                  <Download data-icon="inline-start" />
+                  Download CV
+                </a>
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </nav>
+    </header>
   );
 };
 

@@ -1,414 +1,145 @@
-import styled from "styled-components";
+import { Badge } from "@/components/ui/badge";
+import Tint from "@/components/Tint";
+import { accentAt } from "@/lib/accents";
 
-const Document = styled.img`
-  display: none;
-  height: 70px;
-  width: fit-content;
-  background-color: #000;
-  border-radius: 10px;
-  &:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-`;
+const Logo = ({ src, alt }) =>
+  src ? (
+    <img
+      src={src}
+      alt={alt}
+      className="size-12 shrink-0 rounded-xl border border-border bg-background object-contain p-1"
+    />
+  ) : null;
 
-const Description = styled.div`
-  width: 100%;
-  font-size: 15px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary};
-  line-height: 1.7;
-  padding-top: 8px;
-  border-top: 1px solid ${({ theme }) => theme.glassBorder};
-  @media only screen and (max-width: 768px) {
-    font-size: 13px;
-  }
-`;
-
-const Span = styled.span`
-  overflow: hidden;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-`;
-
-const Card = styled.div`
-  width: 800px;
-  border-radius: 20px;
-  padding: 28px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: ${({ theme }) => theme.card};
-  backdrop-filter: blur(20px);
-  border: 2px solid ${({ theme }) => theme.glassBorder};
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    background: ${({ theme }) => theme.gradient};
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
-    border-color: ${({ theme }) => theme.primary};
-
-    &::before {
-      opacity: 1;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    padding: 20px;
-    gap: 12px;
-    width: 300px;
-  }
-
-  &:hover ${Document} {
-    display: flex;
-  }
-
-  &:hover ${Span} {
-    overflow: visible;
-    -webkit-line-clamp: unset;
-  }
-`;
-
-const Top = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-`;
-
-const Image = styled.img`
-  height: 60px;
-  width: 60px;
-  object-fit: contain;
-  background: ${({ theme }) => theme.white};
-  border-radius: 12px;
-  padding: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-
-  ${Card}:hover & {
-    transform: scale(1.05);
-  }
-
-  @media only screen and (max-width: 768px) {
-    height: 50px;
-    width: 50px;
-  }
-`;
-
-const Body = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Role = styled.div`
-  font-size: 20px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.text_primary};
-  font-family: "Space Grotesk", sans-serif;
-  line-height: 1.3;
-  @media only screen and (max-width: 768px) {
-    font-size: 16px;
-  }
-`;
-
-const Company = styled.div`
-  font-size: 15px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.primary};
-  margin-top: 4px;
-  @media only screen and (max-width: 768px) {
-    font-size: 13px;
-  }
-`;
-
-const Date = styled.div`
-  font-size: 13px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_secondary};
-  margin-top: 2px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  &::before {
-    content: "📅";
-    font-size: 12px;
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 11px;
-  }
-`;
-
-const Skills = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 12px;
-`;
-
-const SkillsLabel = styled.div`
-  font-size: 15px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.text_primary};
-  font-family: "Space Grotesk", sans-serif;
-  @media only screen and (max-width: 768px) {
-    font-size: 13px;
-  }
-`;
-
-const ItemWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
-
-const Skill = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_primary};
-  background: ${({ theme }) => theme.primary + "15"};
-  border: 1px solid ${({ theme }) => theme.primary + "40"};
-  border-radius: 8px;
-  padding: 6px 12px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: ${({ theme }) => theme.primary + "25"};
-    border-color: ${({ theme }) => theme.primary};
-    transform: translateY(-2px);
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
-    padding: 4px 10px;
-  }
-`;
-
-const Tagline = styled.div`
-  font-size: 14px;
-  font-style: italic;
-  color: ${({ theme }) => theme.text_secondary};
-  margin-top: 6px;
-  line-height: 1.5;
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const Roles = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding-top: 16px;
-  border-top: 1px solid ${({ theme }) => theme.glassBorder};
-`;
-
-const RoleBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-`;
-
-const RoleHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-`;
-
-const RoleTitle = styled.div`
-  font-size: 17px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.text_primary};
-  font-family: "Space Grotesk", sans-serif;
-
-  span {
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary};
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 15px;
-  }
-`;
-
-const RoleDate = styled.div`
-  font-size: 13px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.primary};
-  white-space: nowrap;
-`;
-
-const ProjectBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-left: 14px;
-  border-left: 2px solid ${({ theme }) => theme.primary + "40"};
-`;
-
-const ProjectName = styled.div`
-  font-size: 15px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
-  line-height: 1.5;
-
-  em {
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary};
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 13px;
-  }
-`;
-
-const Points = styled.ul`
-  margin: 0;
-  padding-left: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.text_secondary};
-
-  li::marker {
-    color: ${({ theme }) => theme.primary};
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const Stack = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-`;
-
-const StackTag = styled.span`
-  font-size: 12px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_primary};
-  background: ${({ theme }) => theme.primary + "15"};
-  border: 1px solid ${({ theme }) => theme.primary + "40"};
-  border-radius: 6px;
-  padding: 2px 8px;
-`;
-
-const RoleList = ({ roles }) => (
-  <Roles>
-    {roles.map((role) => (
-      <RoleBlock key={role.title}>
-        <RoleHeader>
-          <RoleTitle>
-            {role.title}
-            {role.team && <span> — {role.team}</span>}
-          </RoleTitle>
-          <RoleDate>{role.date}</RoleDate>
-        </RoleHeader>
-        {role.projects?.map((project) => (
-          <ProjectBlock key={project.name}>
-            <ProjectName>
-              {project.name}
-              {project.type && <em> ({project.type})</em>}
-              {project.summary && <> – {project.summary}</>}
-              {project.team && <em> · {project.team}</em>}
-            </ProjectName>
-            {project.stack && (
-              <Stack>
-                {project.stack.map((tech) => (
-                  <StackTag key={tech}>{tech}</StackTag>
-                ))}
-              </Stack>
-            )}
-            <Points>
-              {project.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </Points>
-          </ProjectBlock>
-        ))}
-      </RoleBlock>
-    ))}
-  </Roles>
+const DateBadge = ({ children }) => (
+  <span className="shrink-0 rounded-full bg-muted px-2.5 py-1 font-mono text-[11px] whitespace-nowrap text-muted-foreground">
+    {children}
+  </span>
 );
 
-const ExperienceCard = ({ experience }) => {
-  if (experience.roles) {
-    return (
-      <Card>
-        <Top>
-          <Image src={experience.img} alt={experience.company} />
-          <Body>
-            <Role>{experience.company}</Role>
-            {experience.location && <Company>{experience.location}</Company>}
-            <Date>{experience.date}</Date>
-            {experience.tagline && <Tagline>{experience.tagline}</Tagline>}
-          </Body>
-        </Top>
-        <RoleList roles={experience.roles} />
-      </Card>
-    );
-  }
+const ChipList = ({ items }) => (
+  <ul className="flex flex-wrap gap-1.5">
+    {items.map((item, i) => (
+      <li key={item}>
+        <Tint color={accentAt(i)} className="px-2 py-0.5">
+          {item}
+        </Tint>
+      </li>
+    ))}
+  </ul>
+);
 
+// "Dealflow: Built ..." renders the short label before the colon in bold.
+const Point = ({ text }) => {
+  const match = text.match(/^([^:]{1,24}):\s(.+)$/s);
+  if (!match) return text;
   return (
-    <Card>
-      <Top>
-        <Image src={experience.img} />
-        <Body>
-          <Role>{experience.role}</Role>
-          <Company>{experience.company}</Company>
-          <Date>{experience.date}</Date>
-        </Body>
-      </Top>
-      <Description>
-        {experience?.desc && <Span>{experience?.desc}</Span>}
-        {experience?.skills && (
-          <>
-            <Skills>
-              <SkillsLabel>Skills:</SkillsLabel>
-              <ItemWrapper>
-                {experience?.skills?.map((skill, index) => (
-                  <Skill key={index}>{skill}</Skill>
-                ))}
-              </ItemWrapper>
-            </Skills>
-          </>
-        )}
-      </Description>
-      {experience.doc && (
-        <a href={experience.doc} target="new">
-          <Document src={experience.doc} />
-        </a>
-      )}
-    </Card>
+    <>
+      <span className="font-medium text-foreground">{match[1]}:</span> {match[2]}
+    </>
   );
 };
+
+const ProjectBlock = ({ project }) => (
+  <div className="rounded-xl border border-border bg-sidebar p-4">
+    <div className="flex flex-wrap items-center gap-2">
+      <h5 className="text-sm font-medium">{project.name}</h5>
+      {project.type && (
+        <Badge variant="secondary" className="capitalize">
+          {project.type}
+        </Badge>
+      )}
+      {project.summary && (
+        <span className="text-xs text-muted-foreground">· {project.summary}</span>
+      )}
+    </div>
+    {project.stack && (
+      <div className="mt-3">
+        <ChipList items={project.stack} />
+      </div>
+    )}
+    <ul className="mt-3 flex list-disc flex-col gap-1.5 pl-5 text-sm leading-relaxed text-muted-foreground marker:text-primary">
+      {project.points.map((point) => (
+        <li key={point}>
+          <Point text={point} />
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+const DetailedCard = ({ experience }) => (
+  <>
+    <div className="flex items-start gap-4">
+      <Logo src={experience.img} alt={experience.company} />
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <h3 className="text-base font-medium tracking-tight">{experience.company}</h3>
+            {experience.location && (
+              <p className="text-xs text-muted-foreground">{experience.location}</p>
+            )}
+          </div>
+          <DateBadge>{experience.date}</DateBadge>
+        </div>
+        {experience.tagline && (
+          <p className="mt-2 text-sm text-muted-foreground">{experience.tagline}</p>
+        )}
+      </div>
+    </div>
+
+    {experience.roles.map((role) => (
+      <div key={role.title} className="mt-6">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-border pb-2">
+          <h4 className="text-sm font-medium text-primary-deep">
+            {role.title}
+            {role.team && <span className="text-muted-foreground"> · {role.team}</span>}
+          </h4>
+          {role.date && role.date !== experience.date && <DateBadge>{role.date}</DateBadge>}
+        </div>
+        <div className="flex flex-col gap-3">
+          {role.projects?.map((project) => (
+            <ProjectBlock key={project.name} project={project} />
+          ))}
+        </div>
+      </div>
+    ))}
+  </>
+);
+
+const SimpleCard = ({ experience }) => (
+  <>
+    <div className="flex items-start gap-4">
+      <Logo src={experience.img} alt={experience.company} />
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <h3 className="text-base font-medium tracking-tight">{experience.role}</h3>
+            <p className="text-xs text-muted-foreground">{experience.company}</p>
+          </div>
+          <DateBadge>{experience.date}</DateBadge>
+        </div>
+      </div>
+    </div>
+    {experience.desc && (
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{experience.desc}</p>
+    )}
+    {experience.skills && (
+      <div className="mt-4">
+        <ChipList items={experience.skills} />
+      </div>
+    )}
+  </>
+);
+
+const ExperienceCard = ({ experience }) => (
+  <article className="rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-soft md:p-6">
+    {experience.roles ? (
+      <DetailedCard experience={experience} />
+    ) : (
+      <SimpleCard experience={experience} />
+    )}
+  </article>
+);
 
 export default ExperienceCard;
