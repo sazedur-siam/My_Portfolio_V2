@@ -1,47 +1,70 @@
-import { GiBearFace } from "react-icons/gi";
 import {
-  SiAndroidstudio,
+  SiAnthropic,
   SiAntdesign,
   SiClaude,
   SiCss,
-  SiExpo,
+  SiDocker,
   SiExpress,
-  SiFigma,
-  SiFirebase,
-  SiGit,
+  SiGithubactions,
+  SiGooglegemini,
   SiHtml5,
   SiJavascript,
+  SiModelcontextprotocol,
   SiMongodb,
   SiMui,
-  SiNetlify,
   SiNextdotjs,
   SiNodedotjs,
-  SiPostman,
+  SiOllama,
+  SiPostgresql,
+  SiPython,
   SiReact,
   SiReactquery,
   SiRedux,
   SiShadcnui,
   SiSocketdotio,
   SiStyledcomponents,
-  SiTailwindcss,
   SiTypescript,
+  SiVercel,
 } from "react-icons/si";
+import { GiBearFace } from "react-icons/gi";
 import {
-  TbBrandOpenai,
+  TbBrain,
   TbBrandReactNative,
+  TbCoins,
   TbFileText,
-  TbRoute,
+  TbInfinity,
+  TbPrompt,
+  TbRobot,
+  TbSitemap,
+  TbSparkles,
+  TbSql,
+  TbTerminal2,
+  TbTestPipe,
+  TbTopologyStar3,
 } from "react-icons/tb";
-import { VscVscode } from "react-icons/vsc";
 
 export const Bio = {
   name: "Md. Sazedur Rahman",
-  roles: ["Software Engineer"],
+  roles: ["Fullstack Software Engineer"],
+  title: "Fullstack Software Engineer",
+  location: "Dhaka, Bangladesh",
+  availability: "Open to remote & international roles",
+  focus: "React, Next.js, Node.js & AI engineering",
+  experience: "2.5 years",
+  // Leave empty to hide the email row in Contact.
+  email: "",
+  heroTech: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AI Engineering"],
+  stats: [
+    { value: "2.5", label: "Years shipping production apps" },
+    { value: "650K+", label: "Companies screened in Dealflow" },
+    { value: "50+", label: "Developers tracked on AI Analytics" },
+    { value: "5", label: "Investment targets found via IMS" },
+  ],
   description:
-    "Software Engineer with 2+ years of professional experience building production-grade applications with React, Next.js, and TypeScript, plus full-stack projects in Node.js, Express, and MongoDB. I work directly with Swedish clients to understand business needs, clarify requirements, and turn them into practical frontend solutions, from an investment management platform analyzing 650K+ companies to AI analytics and AI interview platforms.",
+    "I'm a Fullstack Software Engineer who builds web applications from database to UI, with a growing focus on AI engineering. Over the past 2.5 years at a Swedish software company, I've shipped features for an investment management platform covering 650K+ companies, an AI usage observability platform tracking 50+ developers, and an AI-driven interview platform. I work closely with clients to turn business needs into clear requirements and reliable, user-friendly software.",
   github: "https://github.com/sazedur-siam",
   resume:
-    "https://drive.google.com/file/d/1ZZVw9LoLzhKHRan4hdTnwIR6GHBwE5Zk/view?usp=sharing",
+    "https://drive.google.com/file/d/1j7WgpYKSRDY-KgBz-6IF7w5PWFxFzr1J/view?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/md-sazedur-rahman-837179335/",
 };
 
@@ -49,66 +72,85 @@ export const skills = [
   {
     title: "Languages",
     skills: [
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-      { name: "HTML", icon: SiHtml5, color: "#E34F26" },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Python", icon: SiPython },
+      { name: "HTML", icon: SiHtml5 },
     ],
   },
   {
     title: "Frontend",
     skills: [
-      { name: "React Js", icon: SiReact, color: "#61DAFB" },
-      { name: "Next Js", icon: SiNextdotjs },
-      { name: "Zustand", icon: GiBearFace, color: "#C9853A" },
-      { name: "TanStack Query", icon: SiReactquery, color: "#FF4154" },
-      { name: "Redux", icon: SiRedux, color: "#764ABC" },
+      { name: "React", icon: SiReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "React Native", icon: TbBrandReactNative },
+      { name: "Redux Toolkit", icon: SiRedux },
+      { name: "Zustand", icon: GiBearFace },
+      { name: "TanStack Query", icon: SiReactquery },
       { name: "WebSocket", icon: SiSocketdotio },
     ],
   },
   {
     title: "UI & Styling",
     skills: [
-      { name: "CSS", icon: SiCss, color: "#663399" },
-      { name: "Styled Components", icon: SiStyledcomponents, color: "#DB7093" },
-      { name: "Ant Design", icon: SiAntdesign, color: "#1677FF" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-      { name: "Material UI", icon: SiMui, color: "#007FFF" },
-      { name: "Shadcn UI", icon: SiShadcnui },
+      { name: "CSS", icon: SiCss },
+      { name: "shadcn/ui", icon: SiShadcnui },
+      { name: "MUI", icon: SiMui },
+      { name: "Ant Design", icon: SiAntdesign },
+      { name: "styled-components", icon: SiStyledcomponents },
     ],
   },
   {
-    title: "Backend & Data",
+    title: "Backend & DB",
     skills: [
-      { name: "Node Js", icon: SiNodedotjs, color: "#5FA04E" },
-      { name: "Express Js", icon: SiExpress },
-      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "SQL", icon: TbSql },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "MongoDB", icon: SiMongodb },
     ],
   },
   {
-    title: "Mobile Development",
+    title: "Testing, DevOps & Cloud",
     skills: [
-      { name: "React Native", icon: TbBrandReactNative, color: "#61DAFB" },
-      { name: "Expo", icon: SiExpo },
-      { name: "Android Studio", icon: SiAndroidstudio, color: "#3DDC84" },
-      { name: "React Navigation", icon: TbRoute, color: "#8B5CF6" },
+      { name: "Playwright", icon: TbTestPipe },
+      { name: "Docker", icon: SiDocker },
+      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "CI/CD", icon: TbInfinity },
+      { name: "Vercel", icon: SiVercel },
     ],
   },
   {
-    title: "Tools",
+    title: "AI Engineering",
     skills: [
-      { name: "Git", icon: SiGit, color: "#F05032" },
-      { name: "Claude", icon: SiClaude, color: "#D97757" },
-      { name: "Codex", icon: TbBrandOpenai },
+      { name: "Prompt Engineering", icon: TbPrompt },
+      { name: "Context Engineering", icon: TbBrain },
+      { name: "RAG", icon: TbTopologyStar3 },
+      { name: "Agentic Workflows", icon: TbRobot },
+      { name: "Token Optimization", icon: TbCoins },
+    ],
+  },
+  {
+    title: "LLMs & Agents",
+    skills: [
+      { name: "Claude API", icon: SiAnthropic },
+      { name: "Gemini API", icon: SiGooglegemini },
+      { name: "MCP Servers", icon: SiModelcontextprotocol },
+      { name: "Claude Code Skills", icon: TbTerminal2 },
+      { name: "Ollama (Local LLMs)", icon: SiOllama },
+    ],
+  },
+  {
+    title: "AI Practices",
+    skills: [
+      { name: "AI-Native SDLC", icon: TbSitemap },
+      { name: "Claude Code", icon: SiClaude },
       { name: "OpenSpec", icon: TbFileText },
-      { name: "Netlify", icon: SiNetlify, color: "#00C7B7" },
-      { name: "VS Code", icon: VscVscode, color: "#007ACC" },
-      { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-      { name: "Figma", icon: SiFigma, color: "#F24E1E" },
     ],
   },
 ];
 
+// Points may start with a short "Label: " prefix, which renders in bold.
 export const experiences = [
   {
     id: 1,
@@ -129,11 +171,10 @@ export const experiences = [
             summary: "Investment Management System",
             stack: ["React", "TypeScript", "TanStack Query", "Lexical", "dnd kit"],
             points: [
-              "Contributed to an investment management platform that helped the client identify 5 potential companies to invest in",
-              "Developed the Dealflow module for analyzing 650K+ Swedish companies using key investment metrics such as AI review, GPM, ROCE, YoY revenue growth, and gross/net revenue, helping users identify companies matching investment criteria",
-              "Built the Hot Deals module for moving potential companies from Dealflow, enabling users to record outreach, track communication history, and manage companies through different deal stages",
-              "Developed the Actions module to centralize internal, portfolio-related, and personal tasks, giving users a single place to organize, assign, and track day-to-day work",
-              "Built the Meeting module for managing meeting notes, helping users keep track of discussions, decisions, and follow-ups",
+              "Dealflow: Built a company screening and analysis module for 650K+ Swedish companies, using investment metrics data to help users identify suitable investment opportunities. Helped to find 5 potential investment companies.",
+              "Hot Deals: Built a deal management workflow for moving selected companies from Dealflow into active opportunities, with outreach tracking, communication history, and deal stages.",
+              "Actions: Built a centralized task management module for internal, portfolio, and personal work, allowing users to create, assign, and track tasks in one place.",
+              "Meetings: Built a meeting management module with a customized Lexical-based rich text editor for recording discussions, decisions, and follow-ups.",
             ],
           },
           {
@@ -142,8 +183,7 @@ export const experiences = [
             summary: "AI usage observability",
             stack: ["Next.js", "TypeScript", "Recharts"],
             points: [
-              "Built an AI usage observability platform tracking Claude usage across 50+ developers, enabling the team to monitor usage patterns, analyze AI adoption, and make data-driven decisions around AI tool utilization",
-              "Built Recharts views of cost and token usage by project, user, tool, and model, scoped by user role",
+              "Built an AI usage observability platform that currently tracks Claude usage across 50+ developers, enabling the team to monitor usage patterns, analyze AI adoption, and make data-driven decisions around AI tool utilization.",
             ],
           },
           {
@@ -152,17 +192,7 @@ export const experiences = [
             summary: "AI interview platform",
             stack: ["React", "TypeScript", "Zustand", "WebSocket"],
             points: [
-              "Developed an AI interview platform for first-round interviews, making it easier to sort candidates",
-              "Built a real-time interview UI streaming AI responses token by token over WebSocket",
-            ],
-          },
-          {
-            name: "Pricer",
-            type: "client",
-            summary: "Return management portal",
-            stack: ["React", "Redux Toolkit", "Ant Design"],
-            points: [
-              "Developed a package-photo upload workflow for return items with QR code scanning, enabling users to quickly open return records on mobile and upload photos directly, simplifying the return inspection process",
+              "Developed an AI interview platform for first-round interviews, making it easier to sort candidates.",
             ],
           },
         ],
@@ -178,17 +208,8 @@ export const training = [
     role: "Career Development Program",
     company: "Spring Rain Private Ltd, Dhaka, Bangladesh",
     date: "Jan 2024 - Jun 2024",
-    desc: "Completed professional training in JavaScript, Node.js, React, AWS Lambda, Git, DynamoDB, ClickUp, and basic SQA.",
-    skills: [
-      "JavaScript",
-      "Node Js",
-      "React Js",
-      "AWS Lambda",
-      "DynamoDB",
-      "Git",
-      "ClickUp",
-      "SQA",
-    ],
+    desc: "Completed professional training in JavaScript, Node.js, Express.js, React, Git, ClickUp, and basic SQA.",
+    skills: ["JavaScript", "Node.js", "Express.js", "React", "Git", "ClickUp", "SQA"],
   },
 ];
 
@@ -197,10 +218,10 @@ export const education = [
     id: 0,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6W1vSMEDqTzLh8VYEXlBJVrKkBV_mPOSrGA&s",
     school: "Daffodil International University",
-    date: "April 2018 - July 2022",
-    grade: "3.62/4.00",
+    date: "Apr 2018 - Jul 2022",
+    grade: "CGPA 3.62/4.00",
     desc: "I completed my Bachelor's degree in Computer Science and Engineering from Daffodil International University. During my time there, I gained a strong foundation in software development, algorithms, data structures, and web technologies. I also participated in various projects and internships that helped me apply my theoretical knowledge to real-world scenarios.", 
-    degree: "Bachelor of Science - Computer Science and Engineering",
+    degree: "B.Sc. in Computer Science & Engineering",
   },
   {
     id: 1,
@@ -209,7 +230,7 @@ export const education = [
     date: "July 2015 - Apr 2017",
     grade: "4.42",
     desc: "I completed my Higher Secondary degree from here.",
-    degree: "Science",
+    degree: "Higher Secondary Certificate (Science)",
   },
   {
     id: 2,
@@ -217,30 +238,67 @@ export const education = [
     school: "Abdur Rob School and College",
     date: "Jan 2014 - Apr 2015",
     grade: "5.00",
-    desc: "I completed my Seconday School from Here",
-    degree: "Science",
+    desc: "I completed my Secondary School Certificate here.",
+    degree: "Secondary School Certificate (Science)",
   },
 ];
 
 export const projects = [
   {
+    id: 13,
+    title: "DepThreat Analytics",
+    description:
+      "A VS Code extension, published on the Visual Studio Marketplace, that reads the source code of your installed dependencies and flags behavior that could compromise your machine or leak data: credential theft, data exfiltration, hidden shells, install-time attacks, invisible Unicode payloads and typosquats. It runs 108 checks tuned against real 2025–2026 supply-chain attacks across six ecosystems (npm/pnpm/Yarn, PyPI, Go, Cargo, Composer, Maven/Gradle), with inline diagnostics, Quick Fixes, a findings sidebar, policy gates and shareable Markdown reports. CVE and reputation checks via OSV.dev are opt-in; everything else runs locally.",
+    tags: ["TypeScript", "VS Code API", "esbuild", "Vitest", "Zod", "OSV.dev"],
+    category: "extension",
+    github: "https://github.com/sazedur-siam/deep-threat-analytics",
+    webapp: "https://depthreat-analytics.vercel.app",
+  },
+  {
+    id: 14,
+    title: "LUI",
+    description:
+      "A course player for your own folders. LUI turns a folder of videos, PDFs, notebooks and notes into a course you can work through in the browser, with modules and lessons, a video player, notes, transcripts and progress tracking that remembers where you stopped. The hosted version reads folders in the browser and repackages MKV on the fly; run locally, it uses ffmpeg to convert almost any video format.",
+    tags: ["Next.js", "React 19", "TypeScript", "shadcn/ui", "Tailwind CSS", "Video.js", "ffmpeg"],
+    category: "web app",
+    github: "https://github.com/sazedur-siam/LUI",
+    webapp: "https://luilearn.vercel.app",
+  },
+  {
+    id: 11,
+    title: "Autofill AI",
+    description:
+      "A Chrome extension that fills job application forms on Greenhouse, Lever, Ashby and custom sites from your resume, using the Gemini API. Upload your resume once and Gemini turns it into an editable profile; on an application page it reads every empty field and the job description, proposes answers you review in a side panel, then fills the form and attaches your resume. It also scores your fit for a LinkedIn job, marking each requirement as met, partial or missing with evidence from your resume. You always submit the form yourself.",
+    tags: ["TypeScript", "React", "Chrome Extension", "Gemini API", "Vite", "Vitest"],
+    category: "extension",
+    github: "https://github.com/sazedur-siam/autofill_ai",
+  },
+  {
     id: 10,
     title: "DevFit AI",
     description:
-      "An AI-assisted tool that finds the best-fit developer for a codebase. Paste a public GitHub repo URL and DevFit builds a digest of the repository, uses Gemini to derive what kind of developer it needs, then ranks a team with deterministic, auditable scores and plain-language explanations. Includes role-based accounts, an admin dashboard, analysis history, and per-user API keys encrypted with AES-256-GCM.",
-    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "MongoDB", "NextAuth", "Gemini API"],
+      "An AI-powered developer evaluation tool that analyzes GitHub repositories, matches developers against required skillsets, and provides explainable rankings to help teams identify suitable developers for specific projects. Paste a public repo URL and DevFit builds a digest of the codebase, uses Gemini to derive the developer profile it needs, then ranks a team with deterministic, auditable scores and plain-language explanations.",
+    tags: ["Next.js", "TypeScript", "MongoDB", "Gemini API"],
     category: "web app",
     github: "https://github.com/sazedur-siam/dev-fit-ai",
     webapp: "https://dev-fit-ai.vercel.app",
+  },
+  {
+    id: 12,
+    title: "Kuk Website",
+    description:
+      "The product website for Kuk – Hide N Seek (কুক – লুকোচুরি), a free 3D multiplayer hide-and-seek game set in a Bangladeshi village at night. Every page (features, the village and its places, how to play, updates and the tech behind the game) is prerendered from Markdown and JSON content files, so new features and changelog entries need no code changes.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Markdown"],
+    category: "web app",
+    webapp: "https://kuk-website.vercel.app",
+    github: "https://github.com/sazedur-siam/kuk-website",
   },
   {
     id: 9,
     title: "E-Medic Appointment",
     description:
       "A medical appointment platform for patients, doctors, and admins with booking and digital prescriptions. Patients book appointments with doctors, keep their previous prescriptions, and upload prescriptions during an appointment, so their checkup history stays in one place.",
-    image:
-      "https://cdn.dribbble.com/userupload/13614735/file/original-323207698cdce4d4155355da751f77ee.jpg?crop=0x0-5601x4201&resize=400x300&vertical=center",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux", "Firebase"],
+    tags: ["React", "Node.js", "Express.js", "MongoDB"],
     category: "web app",
     github: "https://github.com/sazedur-siam/E-Med-Appointment",
     webapp: "https://emedic-appointment.netlify.app/",
@@ -249,35 +307,18 @@ export const projects = [
     id: 7,
     title: "TrackTheSun",
     description:
-      "A React Native mobile application that tracks the sun's position in real-time to help users find the best seat in public transportation with minimal sun exposure and heat. The app uses GPS and solar position algorithms to provide optimal seating recommendations based on the sun's angle and intensity.",
-    image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&auto=format&fit=crop&q=60",
-    tags: ["React Native", "Expo", "JavaScript", "Solar Position Algorithm", "GPS"],
+      "A mobile app that uses geolocation and solar-position APIs to suggest the most comfortable commute seat. It plans the route with OSRM and OpenStreetMap, works out the sun's angle along the way with suncalc, and recommends the side of the vehicle with the least sun exposure.",
+    tags: ["React Native", "OSRM", "OpenStreetMap", "suncalc", "react-native-maps", "expo-router"],
     category: "android app",
     github: "https://github.com/sazedur-siam/track-the-sun",
-    webapp: "https://github.com/sazedur-siam/track-the-sun",
   },
-  {
-    id: 0,
-    title: "Ema-John",
-    description:
-      "I built this site a replica of Amazon where user can order item and the site will do the basic task of a ecommerce site.",
-    image:
-      "https://web.programming-hero.com/home/_next/image?url=https%3A%2F%2Fd3lhjpscbhcyrv.cloudfront.net%2Fproject%2FProject-7-Ema-John.jpg&w=3840&q=75",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
-    category: "web app",
-    github: "https://github.com/sazedur-siam/ema-john-simple",
-    webapp: "https://github.com/sazedur-siam/ema-john-simple",
-  },
-  {
-    id: 5,
-    title: "Todo Web App",
-    description:
-      " A Todo Web App made with React JS, Redux, and Material UI. It has a sidebar where users can see all the tasks and can create a new task.",
-    image:
-      "https://static.packt-cdn.com/products/9781788293969/graphics/assets/626fcf76-83a4-4d76-af71-e405ec211f12.png",
-    tags: ["React Js", "Material UI", "Local Storage", "Redux"],
-    category: "web app",
-    github: "https://github.com/sazedur-siam/ToDoApp-Redux",
-    webapp: "https://todot3ng.netlify.app/",
-  },
+];
+
+export const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Education", href: "#education" },
+  { label: "Contact", href: "#contact" },
 ];

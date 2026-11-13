@@ -15,3 +15,6 @@
 # misc
 .DS_Store
 *.log
+
+# local browser automation output
+.playwright-mcp/

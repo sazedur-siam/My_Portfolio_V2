@@ -1,123 +1,57 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { projects } from "../../data/constants";
-import ProjectCard from "../Cards/ProjectCards";
-import {
-  CardContainer,
-  Container,
-  Desc,
-  Title,
-  ToggleButton,
-  ToggleButtonGroup,
-  Wrapper,
-} from "./ProjectsStyle";
+import ProjectCard from "@/components/Cards/ProjectCard";
+import Reveal from "@/components/Reveal";
+import Section from "@/components/Section";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { projects } from "@/data/constants";
 
-const Projects = ({ openModal, setOpenModal }) => {
-  const [toggle, setToggle] = useState("all");
+const filters = [
+  { value: "all", label: "All" },
+  { value: "web app", label: "Web" },
+  { value: "extension", label: "Extensions" },
+  { value: "android app", label: "Mobile" },
+];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99],
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: 30,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const filteredProjects =
-    toggle === "all"
-      ? projects
-      : projects.filter((item) => item.category === toggle);
+const Projects = ({ setOpenModal }) => {
+  const [filter, setFilter] = useState("all");
+  const visible =
+    filter === "all" ? projects : projects.filter((project) => project.category === filter);
 
   return (
-    <Container id="projects">
-      <Wrapper>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <Title>Projects</Title>
-          <Desc>
-            Explore my diverse portfolio of web and mobile applications,
-            showcasing innovative solutions and modern development practices.
-          </Desc>
-        </motion.div>
+    <Section
+      id="projects"
+      eyebrow="Work"
+      title="Projects"
+      description="Side projects across web, browser and editor extensions, and mobile, from AI tooling to full-stack apps."
+      tone="muted"
+    >
+      <div className="mb-8 flex justify-center">
+        <Tabs value={filter} onValueChange={setFilter}>
+          <TabsList className="h-10! rounded-full border border-border bg-background p-1">
+            {filters.map((item) => (
+              <TabsTrigger
+                key={item.value}
+                value={item.value}
+                className="rounded-full px-4 data-active:bg-secondary data-active:text-secondary-foreground data-active:shadow-none!"
+              >
+                {item.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <ToggleButtonGroup>
-            <ToggleButton
-              active={toggle === "all"}
-              onClick={() => setToggle("all")}
-            >
-              All Projects
-            </ToggleButton>
-            <ToggleButton
-              active={toggle === "web app"}
-              onClick={() => setToggle("web app")}
-            >
-              Web Apps
-            </ToggleButton>
-            <ToggleButton
-              active={toggle === "android app"}
-              onClick={() => setToggle("android app")}
-            >
-              Mobile Apps
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </motion.div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={toggle}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            style={{ width: "100%" }}
-          >
-            <CardContainer>
-              {filteredProjects.map((project, index) => (
-                <motion.div key={project.id} variants={itemVariants} layout>
-                  <ProjectCard
-                    project={project}
-                    index={index}
-                    openModal={openModal}
-                    setOpenModal={setOpenModal}
-                  />
-                </motion.div>
-              ))}
-            </CardContainer>
-          </motion.div>
-        </AnimatePresence>
-      </Wrapper>
-    </Container>
+      <div className="grid gap-5 md:grid-cols-2">
+        {visible.map((project, index) => (
+          <Reveal key={project.id} delay={(index % 2) * 0.05} className="h-full">
+            <ProjectCard
+              project={project}
+              onOpen={() => setOpenModal({ state: true, project })}
+            />
+          </Reveal>
+        ))}
+      </div>
+    </Section>
   );
 };
 
