@@ -15,25 +15,23 @@ function App() {
   const [openModal, setOpenModal] = useState({ state: false, project: null });
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Experience tone="muted" />
-        <Experience
-          id="training"
-          eyebrow="Foundation"
-          title="Training"
-          description="Internships and hands-on training that built my foundation in full-stack development."
-          items={training}
-        />
-        <Projects setOpenModal={setOpenModal} />
-        <Skills />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
+    <div id="top" className="min-h-screen bg-background text-foreground">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <Navbar />
+        <main className="flex flex-col gap-3">
+          <Hero />
+          <div className="py-10 md:py-14">
+            <About />
+            <Skills />
+            <Experience />
+            <Experience id="training" label="Training" items={training} />
+            <Education />
+          </div>
+          <Projects setOpenModal={setOpenModal} />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
       <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Download, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,15 +11,54 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Bio, navLinks } from "@/data/constants";
+import { cn } from "@/lib/utils";
 
-const Wordmark = () => (
-  <a href="#home" className="text-lg font-medium tracking-tight">
-    Sazedur <span className="text-primary">Rahman</span>
-  </a>
-);
+const city = Bio.location.split(",")[0];
+
+const socials = [
+  { label: "GitHub", href: Bio.github, icon: FaGithub },
+  { label: "LinkedIn", href: Bio.linkedin, icon: FaLinkedin },
+];
+
+const formatTime = () =>
+  new Intl.DateTimeFormat("en-US", {
+    timeZone: Bio.timezone,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }).format(new Date());
+
+// Live local time in Bio.timezone, so remote employers see the time difference at a glance.
+const useLocalTime = () => {
+  const [time, setTime] = useState(formatTime);
+  useEffect(() => {
+    const timer = setInterval(() => setTime(formatTime()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+  return time;
+};
+
+// Highlights the nav link of the section currently in the middle of the viewport.
+const useActiveSection = () => {
+  const [active, setActive] = useState("");
+  useEffect(() => {
+    const sections = navLinks.map((link) => document.querySelector(link.href)).filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => entry.isIntersecting && setActive(`#${entry.target.id}`));
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+  return active;
+};
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const time = useLocalTime();
+  const active = useActiveSection();
 
   // The sheet is mobile-only; close it if the viewport grows to the desktop layout.
   useEffect(() => {
@@ -29,16 +69,23 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Wordmark />
+    <header className="sticky top-0 z-40 -mx-4 bg-background/85 px-4 backdrop-blur-md sm:-mx-6 sm:px-6">
+      <nav className="flex h-16 items-center justify-between gap-4">
+        <p className="flex items-baseline gap-2 text-xs">
+          <time className="font-mono font-medium tabular-nums">{time}</time>
+          <span className="text-muted-foreground">{city}</span>
+        </p>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                aria-current={active === link.href ? "true" : undefined}
+                className={cn(
+                  "rounded-lg px-3 py-2 text-sm transition-colors hover:text-foreground",
+                  active === link.href ? "text-primary" : "text-muted-foreground",
+                )}
               >
                 {link.label}
               </a>
@@ -46,49 +93,42 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <Button asChild size="lg" className="hidden px-4 md:inline-flex">
-          <a href={Bio.resume} target="_blank" rel="noreferrer">
-            <Download data-icon="inline-start" />
-            Download CV
-          </a>
-        </Button>
-
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
-              <Menu className="size-5" />
+        <div className="flex items-center gap-1.5">
+          {socials.map(({ label, href, icon: Icon }) => (
+            <Button key={label} asChild variant="outline" size="icon" aria-label={label}>
+              <a href={href} target="_blank" rel="noreferrer">
+                <Icon />
+              </a>
             </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-72 p-0">
-            <SheetHeader className="border-b border-border p-4">
-              <SheetTitle className="font-medium">
-                Sazedur <span className="text-primary">Rahman</span>
-              </SheetTitle>
-              <SheetDescription>{Bio.title}</SheetDescription>
-            </SheetHeader>
-            <ul className="flex flex-col gap-1 px-3">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="px-6 pt-2">
-              <Button asChild size="lg" className="w-full">
-                <a href={Bio.resume} target="_blank" rel="noreferrer">
-                  <Download data-icon="inline-start" />
-                  Download CV
-                </a>
+          ))}
+
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
+                <Menu className="size-5" />
               </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-72 p-0">
+              <SheetHeader className="border-b border-border p-4">
+                <SheetTitle className="font-medium">{Bio.name}</SheetTitle>
+                <SheetDescription>{Bio.title}</SheetDescription>
+              </SheetHeader>
+              <ul className="flex flex-col gap-1 px-3">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   );

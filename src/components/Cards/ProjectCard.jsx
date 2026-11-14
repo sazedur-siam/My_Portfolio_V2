@@ -1,70 +1,38 @@
-import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import Tint from "@/components/Tint";
-import { accentAt } from "@/lib/accents";
+import { ArrowUpRight } from "lucide-react";
 
-const stop = (event) => event.stopPropagation();
+const categoryLabels = { "web app": "Web app", extension: "Extension", "android app": "Mobile app" };
 
-const ProjectCard = ({ project, onOpen }) => (
-  <article
+// Numbered project card. The whole card opens the details dialog.
+const ProjectCard = ({ project, index, onOpen }) => (
+  <button
+    type="button"
     onClick={onOpen}
-    className="group flex h-full cursor-pointer flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-ring/60 hover:shadow-soft md:p-6"
+    aria-haspopup="dialog"
+    className="group flex h-full w-full flex-col rounded-xl border border-border bg-background p-5 text-left transition-all outline-none hover:-translate-y-0.5 hover:border-ring hover:shadow-soft focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
   >
-    <div className="flex items-start justify-between gap-3">
-      <button
-        type="button"
-        onClick={(event) => {
-          stop(event);
-          onOpen();
-        }}
-        className="text-left text-base font-medium tracking-tight outline-none group-hover:text-primary-deep focus-visible:underline"
-      >
-        {project.title}
-      </button>
-      <Badge variant="secondary" className="capitalize">
-        {project.category}
-      </Badge>
-    </div>
-
-    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-      {project.description}
-    </p>
-
-    <ul className="mt-4 flex flex-wrap gap-1.5">
-      {project.tags.map((tag, i) => (
-        <li key={tag}>
-          <Tint color={accentAt(i)} className="px-2 py-0.5">
-            {tag}
-          </Tint>
-        </li>
-      ))}
-    </ul>
-
-    <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
-      {project.webapp && project.webapp !== project.github && (
-        <Button asChild size="sm" variant="secondary" onClick={stop}>
-          <a href={project.webapp} target="_blank" rel="noreferrer">
-            <ExternalLink data-icon="inline-start" />
-            Live
-          </a>
-        </Button>
-      )}
-      {project.github && (
-        <Button asChild size="sm" variant="outline" onClick={stop}>
-          <a href={project.github} target="_blank" rel="noreferrer">
-            <FaGithub data-icon="inline-start" />
-            Code
-          </a>
-        </Button>
-      )}
-      <span className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-primary">
-        Details
-        <ArrowUpRight className="size-3.5" />
+    <span className="flex w-full items-start justify-between">
+      <span className="text-3xl font-light text-muted-foreground/40 tabular-nums">
+        {String(index).padStart(2, "0")}
       </span>
-    </div>
-  </article>
+      <ArrowUpRight
+        className="size-5 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
+        aria-hidden
+      />
+    </span>
+
+    <span className="mt-6 font-mono text-[11px] tracking-wide text-muted-foreground uppercase">
+      {categoryLabels[project.category] ?? project.category}
+    </span>
+    <span className="mt-1 text-base font-medium tracking-tight group-hover:text-primary-deep">
+      {project.title}
+    </span>
+    <span className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+      {project.description}
+    </span>
+    <span className="mt-auto pt-4 font-mono text-[11px] tracking-wide text-muted-foreground uppercase">
+      {project.tags.slice(0, 3).join(" · ")}
+    </span>
+  </button>
 );
 
 export default ProjectCard;
