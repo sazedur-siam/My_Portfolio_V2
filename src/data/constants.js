@@ -47,13 +47,19 @@ export const Bio = {
   name: "Md. Sazedur Rahman",
   roles: ["Fullstack Software Engineer"],
   title: "Fullstack Software Engineer",
+  // Hero statement: [dark part, muted part].
+  tagline: [
+    "Turning complex ideas into simple, user-friendly solutions,",
+    "following the best practices of AI tools.",
+  ],
+  intro: "Fullstack engineer working with React, Next.js, Node.js and LLMs.",
   location: "Dhaka, Bangladesh",
+  // IANA zone for the live local-time clock in the top bar.
+  timezone: "Asia/Dhaka",
   availability: "Open to remote & international roles",
-  focus: "React, Next.js, Node.js & AI engineering",
   experience: "2.5 years",
   // Leave empty to hide the email row in Contact.
   email: "",
-  heroTech: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AI Engineering"],
   stats: [
     { value: "2.5", label: "Years shipping production apps" },
     { value: "650K+", label: "Companies screened in Dealflow" },
@@ -72,52 +78,52 @@ export const skills = [
   {
     title: "Languages",
     skills: [
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Python", icon: SiPython },
-      { name: "HTML", icon: SiHtml5 },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", iconBg: "#000000" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "HTML", icon: SiHtml5, color: "#E34F26" },
     ],
   },
   {
     title: "Frontend",
     skills: [
-      { name: "React", icon: SiReact },
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "React Native", icon: TbBrandReactNative },
-      { name: "Redux Toolkit", icon: SiRedux },
-      { name: "Zustand", icon: GiBearFace },
-      { name: "TanStack Query", icon: SiReactquery },
-      { name: "WebSocket", icon: SiSocketdotio },
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "React Native", icon: TbBrandReactNative, color: "#61DAFB" },
+      { name: "Redux Toolkit", icon: SiRedux, color: "#764ABC" },
+      { name: "Zustand", icon: GiBearFace, color: "#443E38" },
+      { name: "TanStack Query", icon: SiReactquery, color: "#FF4154" },
+      { name: "WebSocket", icon: SiSocketdotio, color: "#010101" },
     ],
   },
   {
     title: "UI & Styling",
     skills: [
-      { name: "CSS", icon: SiCss },
-      { name: "shadcn/ui", icon: SiShadcnui },
-      { name: "MUI", icon: SiMui },
-      { name: "Ant Design", icon: SiAntdesign },
-      { name: "styled-components", icon: SiStyledcomponents },
+      { name: "CSS", icon: SiCss, color: "#663399" },
+      { name: "shadcn/ui", icon: SiShadcnui, color: "#000000" },
+      { name: "MUI", icon: SiMui, color: "#007FFF" },
+      { name: "Ant Design", icon: SiAntdesign, color: "#0170FE" },
+      { name: "styled-components", icon: SiStyledcomponents, color: "#DB7093" },
     ],
   },
   {
     title: "Backend & DB",
     skills: [
-      { name: "Node.js", icon: SiNodedotjs },
-      { name: "Express.js", icon: SiExpress },
-      { name: "SQL", icon: TbSql },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "MongoDB", icon: SiMongodb },
+      { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+      { name: "Express.js", icon: SiExpress, color: "#000000" },
+      { name: "SQL", icon: TbSql, color: "#336791" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
     ],
   },
   {
     title: "Testing, DevOps & Cloud",
     skills: [
-      { name: "Playwright", icon: TbTestPipe },
-      { name: "Docker", icon: SiDocker },
-      { name: "GitHub Actions", icon: SiGithubactions },
-      { name: "CI/CD", icon: TbInfinity },
-      { name: "Vercel", icon: SiVercel },
+      { name: "Playwright", icon: TbTestPipe, color: "#2EAD33" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
+      { name: "GitHub Actions", icon: SiGithubactions, color: "#2088FF" },
+      { name: "CI/CD", icon: TbInfinity, color: "#0A66C2" },
+      { name: "Vercel", icon: SiVercel, color: "#000000" },
     ],
   },
   {
@@ -133,18 +139,18 @@ export const skills = [
   {
     title: "LLMs & Agents",
     skills: [
-      { name: "Claude API", icon: SiAnthropic },
-      { name: "Gemini API", icon: SiGooglegemini },
-      { name: "MCP Servers", icon: SiModelcontextprotocol },
+      { name: "Claude API", icon: SiAnthropic, color: "#191919" },
+      { name: "Gemini API", icon: SiGooglegemini, color: "#8E75B2" },
+      { name: "MCP Servers", icon: SiModelcontextprotocol, color: "#000000" },
       { name: "Claude Code Skills", icon: TbTerminal2 },
-      { name: "Ollama (Local LLMs)", icon: SiOllama },
+      { name: "Ollama (Local LLMs)", icon: SiOllama, color: "#000000" },
     ],
   },
   {
     title: "AI Practices",
     skills: [
       { name: "AI-Native SDLC", icon: TbSitemap },
-      { name: "Claude Code", icon: SiClaude },
+      { name: "Claude Code", icon: SiClaude, color: "#D97757" },
       { name: "OpenSpec", icon: TbFileText },
     ],
   },
@@ -167,7 +173,6 @@ export const experiences = [
         projects: [
           {
             name: "IMS",
-            type: "client",
             summary: "Investment Management System",
             stack: ["React", "TypeScript", "TanStack Query", "Lexical", "dnd kit"],
             points: [
@@ -179,7 +184,6 @@ export const experiences = [
           },
           {
             name: "Strativ AI Analytics",
-            type: "internal",
             summary: "AI usage observability",
             stack: ["Next.js", "TypeScript", "Recharts"],
             points: [
@@ -188,7 +192,6 @@ export const experiences = [
           },
           {
             name: "Recruitment AI",
-            type: "internal",
             summary: "AI interview platform",
             stack: ["React", "TypeScript", "Zustand", "WebSocket"],
             points: [
@@ -316,9 +319,10 @@ export const projects = [
 
 export const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Training", href: "#training" },
   { label: "Education", href: "#education" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
