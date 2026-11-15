@@ -2,8 +2,9 @@ import { cn } from "@/lib/utils";
 import Reveal from "./Reveal";
 
 // Rounded panel used for the stacked page sections (Projects, Contact): a left-aligned
-// heading with an optional description and an optional right-hand `aside`.
-const Section = ({ id, title, description, aside, className, children }) => (
+// heading with an optional description and an optional right-hand `aside`. `size="lg"` gives
+// the large display heading used by Contact.
+const Section = ({ id, title, description, aside, size, className, children }) => (
   <Reveal
     as="section"
     id={id}
@@ -11,8 +12,19 @@ const Section = ({ id, title, description, aside, className, children }) => (
   >
     <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h2 className="text-lg font-medium tracking-tight">{title}</h2>
-        {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
+        <h2
+          className={cn(
+            "font-medium tracking-tight",
+            size === "lg" ? "text-3xl leading-tight sm:text-4xl" : "text-lg",
+          )}
+        >
+          {title}
+        </h2>
+        {description && (
+          <p className={cn("text-sm text-muted-foreground", size === "lg" ? "mt-3" : "mt-1")}>
+            {description}
+          </p>
+        )}
       </div>
       {aside}
     </div>

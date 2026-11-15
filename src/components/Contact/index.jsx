@@ -43,10 +43,16 @@ const Contact = () => {
   return (
     <Section
       id="contact"
-      title="Let's work together"
+      size="lg"
+      title={
+        <>
+          Let's work together.{" "}
+          <span className="text-muted-foreground">Have a role, a project or just a question?</span>
+        </>
+      }
       description={
         <>
-          Have a role, a project or just a question? Send a message and I'll get back to you
+          Send a message and I'll get back to you
           {Bio.email ? (
             <>
               {" "}

@@ -42,6 +42,13 @@ import {
   TbTestPipe,
   TbTopologyStar3,
 } from "react-icons/tb";
+import depthreatImg from "@/images/projects/depthreat.webp";
+import luiImg from "@/images/projects/lui.webp";
+import autofillImg from "@/images/projects/autofill-ai.webp";
+import devfitImg from "@/images/projects/devfit-ai.webp";
+import kukImg from "@/images/projects/kuk.webp";
+import emedicImg from "@/images/projects/e-medic.webp";
+import trackthesunImg from "@/images/projects/trackthesun.webp";
 
 export const Bio = {
   name: "Md. Sazedur Rahman",
@@ -66,8 +73,13 @@ export const Bio = {
     { value: "50+", label: "Developers tracked on AI Analytics" },
     { value: "5", label: "Investment targets found via IMS" },
   ],
+  // About intro: [dark sentence, muted continuation], followed by `description`.
+  aboutLead: [
+    "I'm a Fullstack Software Engineer in Dhaka.",
+    "I build web applications from database to UI, with a growing focus on AI engineering.",
+  ],
   description:
-    "I'm a Fullstack Software Engineer who builds web applications from database to UI, with a growing focus on AI engineering. Over the past 2.5 years at a Swedish software company, I've shipped features for an investment management platform covering 650K+ companies, an AI usage observability platform tracking 50+ developers, and an AI-driven interview platform. I work closely with clients to turn business needs into clear requirements and reliable, user-friendly software.",
+    "Over the past 2.5 years at a Swedish software company, I've shipped features for an investment management platform covering 650K+ companies, an AI usage observability platform tracking 50+ developers, and an AI-driven interview platform. I work closely with clients to turn business needs into clear requirements and reliable, user-friendly software.",
   github: "https://github.com/sazedur-siam",
   resume:
     "https://drive.google.com/file/d/1j7WgpYKSRDY-KgBz-6IF7w5PWFxFzr1J/view?usp=drive_link",
@@ -250,6 +262,8 @@ export const projects = [
   {
     id: 13,
     title: "DepThreat Analytics",
+    image: depthreatImg,
+    imageAlt: "DepThreat Analytics VS Code extension flagging risky dependency code",
     description:
       "A VS Code extension, published on the Visual Studio Marketplace, that reads the source code of your installed dependencies and flags behavior that could compromise your machine or leak data: credential theft, data exfiltration, hidden shells, install-time attacks, invisible Unicode payloads and typosquats. It runs 108 checks tuned against real 2025–2026 supply-chain attacks across six ecosystems (npm/pnpm/Yarn, PyPI, Go, Cargo, Composer, Maven/Gradle), with inline diagnostics, Quick Fixes, a findings sidebar, policy gates and shareable Markdown reports. CVE and reputation checks via OSV.dev are opt-in; everything else runs locally.",
     tags: ["TypeScript", "VS Code API", "esbuild", "Vitest", "Zod", "OSV.dev"],
@@ -260,6 +274,8 @@ export const projects = [
   {
     id: 14,
     title: "LUI",
+    image: luiImg,
+    imageAlt: "LUI course player with video lessons and notes",
     description:
       "A course player for your own folders. LUI turns a folder of videos, PDFs, notebooks and notes into a course you can work through in the browser, with modules and lessons, a video player, notes, transcripts and progress tracking that remembers where you stopped. The hosted version reads folders in the browser and repackages MKV on the fly; run locally, it uses ffmpeg to convert almost any video format.",
     tags: ["Next.js", "React 19", "TypeScript", "shadcn/ui", "Tailwind CSS", "Video.js", "ffmpeg"],
@@ -270,6 +286,8 @@ export const projects = [
   {
     id: 11,
     title: "Autofill AI",
+    image: autofillImg,
+    imageAlt: "Autofill AI filling a job application form with a suggestions side panel",
     description:
       "A Chrome extension that fills job application forms on Greenhouse, Lever, Ashby and custom sites from your resume, using the Gemini API. Upload your resume once and Gemini turns it into an editable profile; on an application page it reads every empty field and the job description, proposes answers you review in a side panel, then fills the form and attaches your resume. It also scores your fit for a LinkedIn job, marking each requirement as met, partial or missing with evidence from your resume. You always submit the form yourself.",
     tags: ["TypeScript", "React", "Chrome Extension", "Gemini API", "Vite", "Vitest"],
@@ -279,6 +297,8 @@ export const projects = [
   {
     id: 10,
     title: "DevFit AI",
+    image: devfitImg,
+    imageAlt: "DevFit AI dashboard ranking developers by skill match",
     description:
       "An AI-powered developer evaluation tool that analyzes GitHub repositories, matches developers against required skillsets, and provides explainable rankings to help teams identify suitable developers for specific projects. Paste a public repo URL and DevFit builds a digest of the codebase, uses Gemini to derive the developer profile it needs, then ranks a team with deterministic, auditable scores and plain-language explanations.",
     tags: ["Next.js", "TypeScript", "MongoDB", "Gemini API"],
@@ -289,6 +309,8 @@ export const projects = [
   {
     id: 12,
     title: "Kuk Website",
+    image: kukImg,
+    imageAlt: "Kuk – Hide N Seek website showing a Bangladeshi village at night",
     description:
       "The product website for Kuk – Hide N Seek (কুক – লুকোচুরি), a free 3D multiplayer hide-and-seek game set in a Bangladeshi village at night. Every page (features, the village and its places, how to play, updates and the tech behind the game) is prerendered from Markdown and JSON content files, so new features and changelog entries need no code changes.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Markdown"],
@@ -299,6 +321,8 @@ export const projects = [
   {
     id: 9,
     title: "E-Medic Appointment",
+    image: emedicImg,
+    imageAlt: "E-Medic appointment booking on tablet and digital prescription on phone",
     description:
       "A medical appointment platform for patients, doctors, and admins with booking and digital prescriptions. Patients book appointments with doctors, keep their previous prescriptions, and upload prescriptions during an appointment, so their checkup history stays in one place.",
     tags: ["React", "Node.js", "Express.js", "MongoDB"],
@@ -309,6 +333,8 @@ export const projects = [
   {
     id: 7,
     title: "TrackTheSun",
+    image: trackthesunImg,
+    imageAlt: "TrackTheSun app showing a route map and the recommended shaded seat",
     description:
       "A mobile app that uses geolocation and solar-position APIs to suggest the most comfortable commute seat. It plans the route with OSRM and OpenStreetMap, works out the sun's angle along the way with suncalc, and recommends the side of the vehicle with the least sun exposure.",
     tags: ["React Native", "OSRM", "OpenStreetMap", "suncalc", "react-native-maps", "expo-router"],

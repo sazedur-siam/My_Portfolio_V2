@@ -35,12 +35,12 @@ There is no test runner.
 
   Don't add repeat links or blurbs elsewhere.
 - `src/data/constants.js` holds all site content (`Bio`, `skills`, `experiences`, `training`, `education`, `projects`, `navLinks`). Content changes go here, not in components. Keep it in line with the CV.
-  - `Bio` also drives the hero and About: `title`, `tagline` (hero statement as `[dark part, muted part]`), `intro`, `availability`, `timezone`, `stats`. `email` is optional; when set, Contact mentions it.
+  - `Bio` also drives the hero and About: `title`, `tagline` (hero statement as `[dark part, muted part]`), `aboutLead` (About's opening line, same `[dark, muted]` shape, followed by `description`), `intro`, `availability`, `timezone`, `stats`. `email` is optional; when set, Contact mentions it.
   - `skills[].skills[]` items take a `name`, an `icon` (a `react-icons` component), and optionally the tool's brand `color` (plus `iconBg` for logos with cut-out letters, like JavaScript). Skills renders every group as mono chips, plus one row of brand-coloured logos picked by name from its `featured` list.
   - An `experiences` entry with `roles` (each with `projects` → `stack`, `points`) renders the detailed layout in `ExperienceCard`; entries with `desc`/`skills` (like `training`) render the simple card. A point that starts with a short `Label: ` renders the label in bold.
-  - `projects` render as numbered cards (`01`, `02`, ...) in a 2-column grid; with an odd count the first card spans both columns. `category` is `web app` / `extension` / `android app`. Clicking a card opens the `ProjectDetails` dialog, which holds the Live/Code links. `webapp` is optional, and there are no images.
+  - `projects` render as numbered cards (`01`, `02`, ...) in a 2-column grid. Each card shows its `image` (a 5:4 cover imported from `src/images/projects/`, with `imageAlt`), and the dialog shows it too. With an odd count, the first card is `featured`: it spans both columns, with the image on the left. `category` is `web app` / `extension` / `android app`. Clicking a card opens the `ProjectDetails` dialog, which holds the Live/Code links. `webapp` is optional.
 - `src/components/<Section>/index.jsx` holds one folder per section. Reusable cards live in `src/components/Cards/`. Shared layout pieces:
-  - `Section.jsx`: a rounded `bg-sidebar` panel with a left-aligned `title`/`description`, used for Projects and Contact.
+  - `Section.jsx`: a rounded `bg-sidebar` panel with a left-aligned `title`/`description`, used for Projects and Contact. `size="lg"` gives the large two-tone heading Contact uses.
   - `ResumeRow.jsx`: a mono label pill, a connector line with a dot, and a panel. Rows must be adjacent siblings so the line is continuous.
   - `Chip.jsx`: a mono uppercase bordered tag.
   - `Reveal.jsx`: fade-up on scroll; takes `as` and passes other props through.
