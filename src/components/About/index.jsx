@@ -3,7 +3,10 @@ import { Bio } from "@/data/constants";
 
 const About = () => (
   <ResumeRow id="about" label="About me">
-    <p className="text-[15px] leading-relaxed text-muted-foreground">{Bio.description}</p>
+    <p className="text-xl leading-snug font-medium tracking-tight sm:text-2xl">
+      {Bio.aboutLead[0]} <span className="text-muted-foreground">{Bio.aboutLead[1]}</span>
+    </p>
+    <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{Bio.description}</p>
 
     <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 sm:grid-cols-4">
       {Bio.stats.map((stat) => (
