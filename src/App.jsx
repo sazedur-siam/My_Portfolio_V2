@@ -24,7 +24,7 @@ function App() {
             <About />
             <Skills />
             <Experience />
-            <Experience id="training" label="Training" items={training} />
+            <Experience id="training" label="Training" items={training} timeline="last" />
             <Education />
           </div>
           <Projects setOpenModal={setOpenModal} />

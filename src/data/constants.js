@@ -76,7 +76,7 @@ export const Bio = {
   // About intro: [dark sentence, muted continuation], followed by `description`.
   aboutLead: [
     "I'm a Fullstack Software Engineer in Dhaka.",
-    "I build web applications from database to UI, with a growing focus on AI engineering.",
+    "I build web applications, with a growing focus on AI engineering.",
   ],
   description:
     "Over the past 2.5 years at a Swedish software company, I've shipped features for an investment management platform covering 650K+ companies, an AI usage observability platform tracking 50+ developers, and an AI-driven interview platform. I work closely with clients to turn business needs into clear requirements and reliable, user-friendly software.",

@@ -41,7 +41,7 @@ There is no test runner.
   - `projects` render as numbered cards (`01`, `02`, ...) in a 2-column grid. Each card shows its `image` (a 5:4 cover imported from `src/images/projects/`, with `imageAlt`), and the dialog shows it too. With an odd count, the first card is `featured`: it spans both columns, with the image on the left. `category` is `web app` / `extension` / `android app`. Clicking a card opens the `ProjectDetails` dialog, which holds the Live/Code links. `webapp` is optional.
 - `src/components/<Section>/index.jsx` holds one folder per section. Reusable cards live in `src/components/Cards/`. Shared layout pieces:
   - `Section.jsx`: a rounded `bg-sidebar` panel with a left-aligned `title`/`description`, used for Projects and Contact. `size="lg"` gives the large two-tone heading Contact uses.
-  - `ResumeRow.jsx`: a mono label pill, a connector line with a dot, and a panel. Rows must be adjacent siblings so the line is continuous.
+  - `ResumeRow.jsx`: a mono label pill and a panel. Only the work rows (Experience, Training) pass `timeline` (`"first"` / `"middle"` / `"last"`) to draw the dot and connector line, so About, Skills and Education don't read as a work timeline. Timeline rows must be adjacent siblings.
   - `Chip.jsx`: a mono uppercase bordered tag.
   - `Reveal.jsx`: fade-up on scroll; takes `as` and passes other props through.
   - `Tint.jsx`: a tinted chip.
